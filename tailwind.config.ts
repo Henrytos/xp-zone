@@ -9,6 +9,9 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        "open-sans": ["var(--font-open-sans)"],
+      },
       colors: {
         // desing
         success: "#29B683",
@@ -63,6 +66,7 @@ export default {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
+        button: "5 px",
       },
       fontSize: {
         attention: "60 px",

@@ -4,6 +4,7 @@ import "./globals.css";
 
 const openSans = Open_Sans({
   weight: ["700", "400"],
+  variable: "--font-open-sans",
 });
 
 export const metadata: Metadata = {
@@ -19,7 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-br">
-      <body className={`${openSans.style} antialiased`}>{children}</body>
+      <body className={`${openSans.className} antialiased`}>{children}</body>
     </html>
   );
 }
