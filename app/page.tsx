@@ -1,3 +1,3 @@
 export default function HomePage() {
-  return <div></div>;
+  return <main className="min-h-screen w-full bg-home-start"></main>;
 }
