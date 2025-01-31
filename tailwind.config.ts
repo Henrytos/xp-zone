@@ -14,7 +14,9 @@ export default {
       },
       colors: {
         // desing
+        primar: "#120428",
         second: "#2F0C66",
+        "second-white": "#745C98",
         success: "#29B683",
         warning: "#FBA14E",
         danger: "#E54B65",
