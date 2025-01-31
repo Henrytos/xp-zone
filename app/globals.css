@@ -220,3 +220,13 @@ body {
         filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#fe9652",endColorstr="#e54a64",GradientType=1);
     }
 }
+
+@theme {
+    --text-attention: "60px";
+    --text-head: "40px";
+    --text-sub-head: "30px";
+    --text-title: "24px";
+    --text-sub-title: "20px";
+    --text-paragraph: "16px";
+    --text-label: "14px";
+}

@@ -1,9 +1,7 @@
 import { ComponentProps, ReactNode } from "react";
-import { Button as ButtonUi } from "./ui/button";
 import { tv } from "tailwind-variants";
-
 const variantsButton = tv({
-  base: "font-bold text-title font-open-sans px-5 rounded cursor-pointer",
+  base: "font-bold text-2xl font-open-sans px-5 py-3 rounded cursor-pointer",
   variants: {
     color: {
       primary: "bg-radient-horizontal text-white",
@@ -20,14 +18,14 @@ interface RootProps extends ComponentProps<"button"> {
 }
 function Root({ children, color, className }: RootProps) {
   return (
-    <ButtonUi
+    <button
       className={variantsButton({
         color,
         className,
       })}
     >
       {children}
-    </ButtonUi>
+    </button>
   );
 }
 
