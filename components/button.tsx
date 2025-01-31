@@ -16,13 +16,14 @@ const variantsButton = tv({
 interface RootProps extends ComponentProps<"button"> {
   color?: "primary" | "secundary";
 }
-function Root({ children, color, className }: RootProps) {
+function Root({ children, color, className, ...props }: RootProps) {
   return (
     <button
       className={variantsButton({
         color,
         className,
       })}
+      {...props}
     >
       {children}
     </button>
