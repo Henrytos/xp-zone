@@ -14,6 +14,7 @@ export default {
       },
       colors: {
         // desing
+        second: "#2F0C66",
         success: "#29B683",
         warning: "#FBA14E",
         danger: "#E54B65",
