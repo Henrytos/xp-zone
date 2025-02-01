@@ -44,7 +44,7 @@ body {
         --primary: #120428;
 
         @layer components {
-            .bg-radient-linear {
+            .bg-radiant-linear {
                 background: rgb(254, 150, 82);
                 background: -moz-linear-gradient(
                     90deg,
@@ -64,7 +64,7 @@ body {
                 filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#fe9652",endColorstr="#e54a64",GradientType=1);
             }
 
-            .bg-radient-horizontal {
+            .bg-radiant-horizontal {
                 background: rgb(254, 150, 82);
                 background: -moz-linear-gradient(
                     0deg,
@@ -180,7 +180,7 @@ body {
         filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#120428",endColorstr="#000000",GradientType=1);
     }
 
-    .bg-radient-linear {
+    .bg-radiant-linear {
         background: rgb(254, 150, 82);
         background: -moz-linear-gradient(
             90deg,
@@ -200,7 +200,7 @@ body {
         filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#fe9652",endColorstr="#e54a64",GradientType=1);
     }
 
-    .bg-radient-horizontal {
+    .bg-radiant-horizontal {
         background: rgb(254, 150, 82);
         background: -moz-linear-gradient(
             0deg,

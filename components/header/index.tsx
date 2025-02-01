@@ -17,11 +17,11 @@ import { zodResolver } from "@hookform/resolvers/zod";
 const formSingUpSchema = z
   .object({
     email: z.string().email("email invali"),
-    pasword: z.string().min(6).max(20),
+    password: z.string().min(6).max(20),
     repeatPassword: z.string().min(6).max(20),
   })
   .refine((fields) => {
-    if (fields.pasword != fields.repeatPassword) {
+    if (fields.password != fields.repeatPassword) {
       return false;
     }
 
@@ -57,7 +57,7 @@ export function Header() {
         onClick={handleCLickInLogo}
       />
       <div className="space-x-9">
-        <Button.Root color="secundary" onClick={handleCLickSingInButton}>
+        <Button.Root color="secondary" onClick={handleCLickSingInButton}>
           {" "}
           Entrar
         </Button.Root>
@@ -101,7 +101,7 @@ export function Header() {
                 Faça seu login e acesse o sistema
               </h3>
 
-              <Button.Root color="terceary" className="w-full">
+              <Button.Root color="tertiary" className="w-full">
                 <Button.Icon>
                   <Image
                     src="/logo/gogle-icon.png"
@@ -115,7 +115,7 @@ export function Header() {
                 Entrar com o Google
               </Button.Root>
 
-              <Button.Root color="terceary" className="w-full bg-second-white">
+              <Button.Root color="tertiary" className="w-full bg-second-white">
                 <Button.Icon>
                   <Image
                     src="/logo/facebook-icon.png"

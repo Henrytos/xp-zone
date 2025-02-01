@@ -14,9 +14,9 @@ export default {
       },
       colors: {
         // desing
-        primar: "#120428",
-        second: "#2F0C66",
-        "second-white": "#745C98",
+        primary: "#120428",
+        secondary: "#2F0C66",
+        "secondary-white": "#745C98",
         success: "#29B683",
         warning: "#FBA14E",
         danger: "#E54B65",
@@ -34,14 +34,8 @@ export default {
           DEFAULT: "hsl(var(--popover))",
           foreground: "hsl(var(--popover-foreground))",
         },
-        primary: {
-          DEFAULT: "hsl(var(--primary))",
-          foreground: "hsl(var(--primary-foreground))",
-        },
-        secondary: {
-          DEFAULT: "hsl(var(--secondary))",
-          foreground: "hsl(var(--secondary-foreground))",
-        },
+      
+   
         muted: {
           DEFAULT: "hsl(var(--muted))",
           foreground: "hsl(var(--muted-foreground))",
