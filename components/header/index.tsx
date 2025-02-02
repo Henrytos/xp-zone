@@ -52,16 +52,16 @@ export function Header() {
   };
 
   const { register, handleSubmit, watch, setValue, reset, formState: {
-    validatingField,
-
-  } } = useForm<FormSingUpSchema>({
+    errors
+  }, getValues } = useForm<FormSingUpSchema>({
     resolver: zodResolver(formSingUpSchema),
     defaultValues: {
       email: "",
       password: "",
       repeatPassword: "",
       rememberMyPassword: false,
-    }
+    },
+    mode: "onChange"
   });
 
   const handleFormSingUpSUbmit = (data: FormSingUpSchema) => {
@@ -71,14 +71,12 @@ export function Header() {
 
   const isToRememberPassword: boolean = watch("rememberMyPassword") == true;
   const isPasswordsAreHitting: boolean = watch("password") == watch("repeatPassword");
-  const isPasswordValid = true;
-  const isRepeatPasswordValid = true;
+  const isPasswordValid = !Boolean(errors.password);
+  const isRepeatPasswordValid = !Boolean(errors.repeatPassword);
 
-  console.log({
-    isPasswordsAreHitting,
-    isPasswordValid,
-    isRepeatPasswordValid
-  })
+  const passwordValue = getValues("password")
+  const repeatPasswordValue = getValues("password")
+
 
   return (
     <header className="flex justify-between items-center mt-8 h-28 w-full max-w-[80%] m-auto">
@@ -172,7 +170,7 @@ export function Header() {
               <div className="col-span-2 grid grid-cols-2 gap-3 mb-5">
                 <div className="col-span-1 space-y-2 relative">
                   <label htmlFor="password" className="text-white text-sm font-normal flex items-center gap-1">
-                    Crie uma senha {isPasswordsAreHitting && isPasswordValid ? <Check className="w-4 h-4 text-green-400" /> : <X className="w-4 h-4 text-red-400" />}
+                    Crie uma senha {(isPasswordsAreHitting && isPasswordValid && passwordValue != "") ? <Check className="w-4 h-4 text-green-400" /> : <X className="w-4 h-4 text-red-400" />}
                   </label>
                   <input id="password" type={`${isPasswordVisible ? "text" : "password"}`} className="w-full px-3 py-[12.5px] text-white/80 placeholder-white/40 bg-primary border-primary-foreground border-[3px] rounded-md placeholder-white text-xl focus:outline-none" placeholder="Crie uma senha"  {...register("password")} />
                   <span className=" absolute top-[42px] right-3 cursor-pointer text-secondary-white ">
@@ -187,7 +185,7 @@ export function Header() {
                 </div>
                 <div className="col-span-1 space-y-2 relative">
                   <label htmlFor="repeatPassword" className="text-white text-sm font-normal flex items-center gap-1">
-                    Repita sua senha {isPasswordsAreHitting && isRepeatPasswordValid ? <Check className="w-4 h-4 text-green-400" /> : <X className="w-4 h-4 text-red-400" />}
+                    Repita sua senha {(isPasswordsAreHitting && isRepeatPasswordValid && repeatPasswordValue != "") ? <Check className="w-4 h-4 text-green-400" /> : <X className="w-4 h-4 text-red-400" />}
                   </label>
                   <input id="repeatPassword" type={`${isRepeatPasswordVisible ? "text" : "password"}`} className="w-full px-3 py-[12.5px] text-white/80 placeholder-white/40 bg-primary border-primary-foreground border-[3px] rounded-md placeholder-white text-xl focus:outline-none" placeholder="Repita sua senha"  {...register("repeatPassword")} />
                   <span className=" absolute top-[42px] right-3 cursor-pointer text-secondary-white ">
