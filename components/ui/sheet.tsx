@@ -3,7 +3,6 @@
 import * as React from "react";
 import * as SheetPrimitive from "@radix-ui/react-dialog";
 import { cva, type VariantProps } from "class-variance-authority";
-import { X } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 import Image from "next/image";
@@ -65,7 +64,7 @@ const SheetContent = React.forwardRef<
       className={cn(
         sheetVariants({ side }),
         className,
-        "bg-second px-24 py-20 border-0",
+        "bg-secondary px-24 py-20 border-0",
       )}
       {...props}
     >

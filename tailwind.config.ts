@@ -14,8 +14,14 @@ export default {
       },
       colors: {
         // desing
-        primary: "#120428",
-        secondary: "#2F0C66",
+        primary: {
+          DEFAULT: "#120428",
+          foreground: "#593D85",
+        },
+        secondary: {
+          DEFAULT: "#2F0C66",
+          foreground: "#2F0C66",
+        },
         "secondary-white": "#745C98",
         success: "#29B683",
         warning: "#FBA14E",
@@ -33,9 +39,7 @@ export default {
         popover: {
           DEFAULT: "hsl(var(--popover))",
           foreground: "hsl(var(--popover-foreground))",
-        },
-      
-   
+        },   
         muted: {
           DEFAULT: "hsl(var(--muted))",
           foreground: "hsl(var(--muted-foreground))",

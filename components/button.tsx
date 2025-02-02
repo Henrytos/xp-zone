@@ -5,7 +5,7 @@ const variantsButton = tv({
   base: "font-bold text-2xl  font-open-sans px-5 py-3 rounded-md cursor-pointer flex inline items-center",
   variants: {
     color: {
-      primary: "bg-radiant horizontal text-white",
+      primary: "bg-radiant-horizontal text-white",
       secondary: "border text-white",
       tertiary: "bg-primary text-white",
     },
