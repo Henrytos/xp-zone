@@ -6,7 +6,7 @@ const variantsButton = tv({
   variants: {
     color: {
       primary: "bg-radiant-horizontal text-white",
-      secondary: "border text-white",
+      secondary: "border-2 text-white",
       tertiary: "bg-primary text-white",
     },
   },

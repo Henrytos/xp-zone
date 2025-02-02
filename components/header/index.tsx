@@ -13,12 +13,15 @@ import { useState } from "react";
 import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { Check, Eye, EyeOff, X } from "lucide-react"
+
 
 const formSingUpSchema = z
   .object({
     email: z.string().email("email invali"),
     password: z.string().min(6).max(20),
     repeatPassword: z.string().min(6).max(20),
+    rememberMyPassword: z.boolean().optional().default(false),
   })
   .refine((fields) => {
     if (fields.password != fields.repeatPassword) {
@@ -28,10 +31,16 @@ const formSingUpSchema = z
     return true;
   });
 
+type FormSingUpSchema = z.infer<typeof formSingUpSchema>;
+
 export function Header() {
   const router = useRouter();
   const [openSheetSingIn, setOpenSheetSingIn] = useState<boolean>(false);
   const [openSheetAdvertise, setOpenSheetAdvertise] = useState<boolean>(false);
+  const [isPasswordVisible, setIsPasswordVIsible] = useState<boolean>(true);
+  const [isRepeatPasswordVisible, setISRepeatPasswordVIsible] = useState<boolean>(true);
+
+
   const handleCLickInLogo = () => {
     router.push("/");
   };
@@ -42,9 +51,35 @@ export function Header() {
     setOpenSheetAdvertise((currentState) => !currentState);
   };
 
-  const { } = useForm({
+  const { register, handleSubmit, watch, setValue, reset, formState: {
+    validatingField,
+
+  } } = useForm<FormSingUpSchema>({
     resolver: zodResolver(formSingUpSchema),
+    defaultValues: {
+      email: "",
+      password: "",
+      repeatPassword: "",
+      rememberMyPassword: false,
+    }
   });
+
+  const handleFormSingUpSUbmit = (data: FormSingUpSchema) => {
+    console.log(data);
+    reset();
+  }
+
+  const isToRememberPassword: boolean = watch("rememberMyPassword") == true;
+  const isPasswordsAreHitting: boolean = watch("password") == watch("repeatPassword");
+  const isPasswordValid = true;
+  const isRepeatPasswordValid = true;
+
+  console.log({
+    isPasswordsAreHitting,
+    isPasswordValid,
+    isRepeatPasswordValid
+  })
+
   return (
     <header className="flex justify-between items-center mt-8 h-28 w-full max-w-[80%] m-auto">
       <Image
@@ -126,45 +161,66 @@ export function Header() {
               Ou inscreva-se com seu email
             </h3>
 
-            <form className="grid grid-cols-2 ">
-              <div className="col-span-2 space-y-2">
-                <label htmlFor="" className="text-white text-sm font-normal">
+            <form className="grid grid-cols-2 " onSubmit={handleSubmit(handleFormSingUpSUbmit)}>
+              <div className="col-span-2 space-y-2 mb-5">
+                <label htmlFor="email" className="text-white text-sm font-normal">
                   Digite seu email
                 </label>
-                <input type="email" className="w-full px-3 py-[12.5px] text-white/80 placeholder-white/40 bg-primary border-primary-foreground border-[3px] rounded-md placeholder-white text-xl focus:outline-none" placeholder="Digite seu email" />
+                <input id="email" type="email" className="w-full px-3 py-[12.5px] text-white/80 placeholder-white/40 bg-primary border-primary-foreground border-[3px] rounded-md placeholder-white text-xl focus:outline-none" placeholder="Digite seu email" {...register("email")} />
               </div>
 
               <div className="col-span-2 grid grid-cols-2 gap-3 mb-5">
-                <div className="col-span-1 space-y-2">
-                  <label htmlFor="" className="text-white text-sm font-normal">
-                    Digite seu email
+                <div className="col-span-1 space-y-2 relative">
+                  <label htmlFor="password" className="text-white text-sm font-normal flex items-center gap-1">
+                    Crie uma senha {isPasswordsAreHitting && isPasswordValid ? <Check className="w-4 h-4 text-green-400" /> : <X className="w-4 h-4 text-red-400" />}
                   </label>
-                  <input type="email" className="w-full px-3 py-[12.5px] text-white/80 placeholder-white/40 bg-primary border-primary-foreground border-[3px] rounded-md placeholder-white text-xl focus:outline-none" placeholder="Digite seu email" />
+                  <input id="password" type={`${isPasswordVisible ? "text" : "password"}`} className="w-full px-3 py-[12.5px] text-white/80 placeholder-white/40 bg-primary border-primary-foreground border-[3px] rounded-md placeholder-white text-xl focus:outline-none" placeholder="Crie uma senha"  {...register("password")} />
+                  <span className=" absolute top-[42px] right-3 cursor-pointer text-secondary-white ">
+                    {isPasswordVisible && <Eye className="w-6 h-6 " onClick={() => {
+                      setIsPasswordVIsible((currentState) => !currentState)
+                    }} />}
+                    {!isPasswordVisible && <EyeOff className="w-6 h-6 " onClick={() => {
+                      setIsPasswordVIsible((currentState) => !currentState)
+                    }} />}
+                  </span>
+
                 </div>
-                <div className="col-span-1 space-y-2">
-                  <label htmlFor="" className="text-white text-sm font-normal">
-                    Digite seu email
+                <div className="col-span-1 space-y-2 relative">
+                  <label htmlFor="repeatPassword" className="text-white text-sm font-normal flex items-center gap-1">
+                    Repita sua senha {isPasswordsAreHitting && isRepeatPasswordValid ? <Check className="w-4 h-4 text-green-400" /> : <X className="w-4 h-4 text-red-400" />}
                   </label>
-                  <input type="email" className="w-full px-3 py-[12.5px] text-white/80 placeholder-white/40 bg-primary border-primary-foreground border-[3px] rounded-md placeholder-white text-xl focus:outline-none" placeholder="Digite seu email" />
+                  <input id="repeatPassword" type={`${isRepeatPasswordVisible ? "text" : "password"}`} className="w-full px-3 py-[12.5px] text-white/80 placeholder-white/40 bg-primary border-primary-foreground border-[3px] rounded-md placeholder-white text-xl focus:outline-none" placeholder="Repita sua senha"  {...register("repeatPassword")} />
+                  <span className=" absolute top-[42px] right-3 cursor-pointer text-secondary-white ">
+                    {isRepeatPasswordVisible && <Eye className="w-6 h-6 " onClick={() => {
+                      setISRepeatPasswordVIsible((currentState) => !currentState)
+                    }} />}
+                    {!isRepeatPasswordVisible && <EyeOff className="w-6 h-6 " onClick={() => {
+                      setISRepeatPasswordVIsible((currentState) => !currentState)
+                    }} />}
+                  </span>
                 </div>
               </div>
 
               <div className=" col-span-2 flex justify-between items-center mb-5">
-                <div className="flex gap-1.5" >
-                  <input type="checkbox" name="" id="" className="appearance-none p-0 m-0 w-7 h-7  rounded-lg bg-gradient-to-r from-[#fe9652] to-[#e54a64] relative before:w-[24px] before:h-[24px] before:bg-secondary before:absolute before:top-1/2 before:left-1/2 before:-translate-x-1/2 before:-translate-y-1/2 before:rounded-lg scale-90" />
-                  <label htmlFor="" className="font-light text-sm text-white py-auto translate-y-1" >Lembrar minha senha</label>
+                <div className="flex gap-1.5 relative" >
+                  <input id="rememberMyPassword" type="checkbox" className="appearance-none p-0 m-0 w-7 h-7  rounded-lg bg-gradient-to-r from-[#fe9652] to-[#e54a64] relative before:w-[24px] before:h-[24px] before:bg-secondary before:absolute before:top-1/2 before:left-1/2 before:-translate-x-1/2 before:-translate-y-1/2 before:rounded-lg scale-90" {...register("rememberMyPassword")} />
+                  {isToRememberPassword && <Check className="text-[#fe9652] absolute top-0.5 left-0.5" onClick={() => {
+                    setValue("rememberMyPassword", false)
+                  }} />}
+                  <label htmlFor="rememberMyPassword" className="font-light text-sm text-white py-auto translate-y-1"  >Lembrar minha senha</label>
                 </div>
 
                 <span className="font-light text-sm text-secondary-white cursor-pointer hover:underline transition-all ">
                   esqueci minha senha
                 </span>
+
               </div>
 
               <div className="w-full col-span-2 grid grid-cols-2 gap-5">
                 <Button.Root color="secondary" className="col-span-1">
                   Acessar
                 </Button.Root>
-                <Button.Root color="primary" className="col-span-1">
+                <Button.Root color="primary" className="col-span-1" >
                   Criar conta
                 </Button.Root>
               </div>
