@@ -25,7 +25,7 @@ function Label({ children, className, ...props }: ComponentProps<"label">) {
 
 function Input({ className, ...props }: ComponentProps<"input">) {
     return (<>
-        <input className={twMerge("w-full px-3 py-[12.5px] text-white/80 placeholder-white/40 bg-primary border-primary-foreground border-[3px] rounded-md placeholder-white text-xl focus:outline-none", className)} {...props} /></>)
+        <input className={twMerge(" w-full px-3 py-[12.5px] text-white/60  bg-primary border-primary-foreground border-[3px] rounded-md placeholder-white text-xl focus:outline-none", className)} {...props} /></>)
 }
 
 
