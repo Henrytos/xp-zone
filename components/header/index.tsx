@@ -173,7 +173,7 @@ export function Header() {
                     Crie uma senha {(isPasswordsAreHitting && isPasswordValid && passwordValue != "") ? <Check className="w-4 h-4 text-green-400" /> : <X className="w-4 h-4 text-red-400" />}
                   </label>
                   <input id="password" type={`${isPasswordVisible ? "text" : "password"}`} className="w-full px-3 py-[12.5px] text-white/80 placeholder-white/40 bg-primary border-primary-foreground border-[3px] rounded-md placeholder-white text-xl focus:outline-none" placeholder="Crie uma senha"  {...register("password")} />
-                  <span className=" absolute top-[42px] right-3 cursor-pointer text-secondary-white ">
+                  <span className=" absolute top-[39px] right-3 cursor-pointer text-secondary-white ">
                     {isPasswordVisible && <Eye className="w-6 h-6 " onClick={() => {
                       setIsPasswordVIsible((currentState) => !currentState)
                     }} />}
@@ -188,7 +188,7 @@ export function Header() {
                     Repita sua senha {(isPasswordsAreHitting && isRepeatPasswordValid && repeatPasswordValue != "") ? <Check className="w-4 h-4 text-green-400" /> : <X className="w-4 h-4 text-red-400" />}
                   </label>
                   <input id="repeatPassword" type={`${isRepeatPasswordVisible ? "text" : "password"}`} className="w-full px-3 py-[12.5px] text-white/80 placeholder-white/40 bg-primary border-primary-foreground border-[3px] rounded-md placeholder-white text-xl focus:outline-none" placeholder="Repita sua senha"  {...register("repeatPassword")} />
-                  <span className=" absolute top-[42px] right-3 cursor-pointer text-secondary-white ">
+                  <span className=" absolute top-[39px] right-3 cursor-pointer text-secondary-white ">
                     {isRepeatPasswordVisible && <Eye className="w-6 h-6 " onClick={() => {
                       setISRepeatPasswordVIsible((currentState) => !currentState)
                     }} />}
