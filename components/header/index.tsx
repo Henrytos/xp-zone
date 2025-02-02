@@ -13,7 +13,8 @@ import { useState } from "react";
 import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Check, Eye, EyeOff, X } from "lucide-react"
+import { Check, Eye, EyeOff } from "lucide-react"
+import Form from "./form";
 
 
 const formSingUpSchema = z
@@ -67,15 +68,15 @@ export function Header() {
   const handleFormSingUpSUbmit = (data: FormSingUpSchema) => {
     console.log(data);
     reset();
+    handleCLickSingInButton()
   }
 
   const isToRememberPassword: boolean = watch("rememberMyPassword") == true;
   const isPasswordsAreHitting: boolean = watch("password") == watch("repeatPassword");
-  const isPasswordValid = !Boolean(errors.password);
-  const isRepeatPasswordValid = !Boolean(errors.repeatPassword);
+  const isPasswordValid = !Boolean(errors.password) && getValues("password").length > 0;;
+  const isRepeatPasswordValid = !Boolean(errors.repeatPassword) && getValues("repeatPassword").length > 0;
+  const isEmailValid = !Boolean(errors.email) && getValues("email").length > 0;
 
-  const passwordValue = getValues("password")
-  const repeatPasswordValue = getValues("password")
 
 
   return (
@@ -159,20 +160,20 @@ export function Header() {
               Ou inscreva-se com seu email
             </h3>
 
-            <form className="grid grid-cols-2 " onSubmit={handleSubmit(handleFormSingUpSUbmit)}>
-              <div className="col-span-2 space-y-2 mb-5">
-                <label htmlFor="email" className="text-white text-sm font-normal">
-                  Digite seu email
-                </label>
-                <input id="email" type="email" className="w-full px-3 py-[12.5px] text-white/80 placeholder-white/40 bg-primary border-primary-foreground border-[3px] rounded-md placeholder-white text-xl focus:outline-none" placeholder="Digite seu email" {...register("email")} />
-              </div>
+            <Form.Root onSubmit={handleSubmit(handleFormSingUpSUbmit)}>
+              <Form.Control>
+                <Form.Label htmlFor="email">
+                  Digite seu email <Form.FieldState isValid={isEmailValid} />
+                </Form.Label>
+                <Form.Input id="email" type="email" placeholder="Digite seu email" {...register("email")} />
+              </Form.Control>
 
-              <div className="col-span-2 grid grid-cols-2 gap-3 mb-5">
-                <div className="col-span-1 space-y-2 relative">
-                  <label htmlFor="password" className="text-white text-sm font-normal flex items-center gap-1">
-                    Crie uma senha {(isPasswordsAreHitting && isPasswordValid && passwordValue != "") ? <Check className="w-4 h-4 text-green-400" /> : <X className="w-4 h-4 text-red-400" />}
-                  </label>
-                  <input id="password" type={`${isPasswordVisible ? "text" : "password"}`} className="w-full px-3 py-[12.5px] text-white/80 placeholder-white/40 bg-primary border-primary-foreground border-[3px] rounded-md placeholder-white text-xl focus:outline-none" placeholder="Crie uma senha"  {...register("password")} />
+              <Form.Control className="grid grid-cols-2 gap-3 space-y-0">
+                <Form.Control className="col-span-1 relative mt-0">
+                  <Form.Label htmlFor="password" >
+                    Crie uma senha <Form.FieldState isValid={isPasswordsAreHitting && isPasswordValid} />
+                  </Form.Label>
+                  <Form.Input id="password" type={`${isPasswordVisible ? "text" : "password"}`} placeholder="Crie uma senha"  {...register("password")} />
                   <span className=" absolute top-[39px] right-3 cursor-pointer text-secondary-white ">
                     {isPasswordVisible && <Eye className="w-6 h-6 " onClick={() => {
                       setIsPasswordVIsible((currentState) => !currentState)
@@ -181,13 +182,13 @@ export function Header() {
                       setIsPasswordVIsible((currentState) => !currentState)
                     }} />}
                   </span>
+                </Form.Control>
 
-                </div>
-                <div className="col-span-1 space-y-2 relative">
-                  <label htmlFor="repeatPassword" className="text-white text-sm font-normal flex items-center gap-1">
-                    Repita sua senha {(isPasswordsAreHitting && isRepeatPasswordValid && repeatPasswordValue != "") ? <Check className="w-4 h-4 text-green-400" /> : <X className="w-4 h-4 text-red-400" />}
-                  </label>
-                  <input id="repeatPassword" type={`${isRepeatPasswordVisible ? "text" : "password"}`} className="w-full px-3 py-[12.5px] text-white/80 placeholder-white/40 bg-primary border-primary-foreground border-[3px] rounded-md placeholder-white text-xl focus:outline-none" placeholder="Repita sua senha"  {...register("repeatPassword")} />
+                <Form.Control className="col-span-1 relative  mt-0">
+                  <Form.Label htmlFor="repeatPassword" >
+                    Repita sua senha <Form.FieldState isValid={isPasswordsAreHitting && isRepeatPasswordValid} />
+                  </Form.Label>
+                  <Form.Input id="repeatPassword" type={`${isRepeatPasswordVisible ? "text" : "password"}`} placeholder="Repita sua senha"  {...register("repeatPassword")} />
                   <span className=" absolute top-[39px] right-3 cursor-pointer text-secondary-white ">
                     {isRepeatPasswordVisible && <Eye className="w-6 h-6 " onClick={() => {
                       setISRepeatPasswordVIsible((currentState) => !currentState)
@@ -196,8 +197,8 @@ export function Header() {
                       setISRepeatPasswordVIsible((currentState) => !currentState)
                     }} />}
                   </span>
-                </div>
-              </div>
+                </Form.Control>
+              </Form.Control>
 
               <div className=" col-span-2 flex justify-between items-center mb-5">
                 <div className="flex gap-1.5 relative" >
@@ -211,19 +212,19 @@ export function Header() {
                 <span className="font-light text-sm text-secondary-white cursor-pointer hover:underline transition-all ">
                   esqueci minha senha
                 </span>
-
               </div>
 
-              <div className="w-full col-span-2 grid grid-cols-2 gap-5">
+              <Form.Control className="grid grid-cols-2 gap-3 space-y-0">
                 <Button.Root color="secondary" className="col-span-1">
                   Acessar
                 </Button.Root>
-                <Button.Root color="primary" className="col-span-1" >
+                <Button.Root color="primary" className="col-span-1" onClick={(ev) => {
+                  ev.preventDefault()
+                }}>
                   Criar conta
                 </Button.Root>
-              </div>
-            </form>
-
+              </Form.Control>
+            </Form.Root>
           </SheetContent>
         </Sheet>
 
