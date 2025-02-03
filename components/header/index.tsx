@@ -41,7 +41,6 @@ export function Header() {
         onClick={handleCLickInLogo}
       />
       <div className="space-x-9">
-
         {/* button sing in */}
         <Button.Root color="secondary" onClick={handleCLickSingInButton}>
           {" "}

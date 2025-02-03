@@ -34,7 +34,7 @@ interface SheetFormSingInProps {
 }
 export function SheetFormSingIn({ open, onOpenChange }: SheetFormSingInProps) {
     const [isPasswordVisible, setIsPasswordVIsible] = useState<boolean>(true);
-    const [isRepeatPasswordVisible, setISRepeatPasswordVIsible] = useState<boolean>(true);
+    const [isRepeatPasswordVisible, setIsRepeatPasswordVisible] = useState<boolean>(true);
 
 
     const { register, handleSubmit, watch, setValue, reset, formState: {
@@ -147,10 +147,10 @@ export function SheetFormSingIn({ open, onOpenChange }: SheetFormSingInProps) {
                         <Form.Input id="repeatPassword" className="placeholder-white/50" type={`${isRepeatPasswordVisible ? "text" : "password"}`} placeholder="Repita sua senha"  {...register("repeatPassword")} />
                         <span className=" absolute top-[39px] right-3 cursor-pointer text-secondary-white ">
                             {isRepeatPasswordVisible && <Eye className="w-6 h-6 " onClick={() => {
-                                setISRepeatPasswordVIsible((currentState) => !currentState)
+                                setIsRepeatPasswordVisible((currentState) => !currentState)
                             }} />}
                             {!isRepeatPasswordVisible && <EyeOff className="w-6 h-6 " onClick={() => {
-                                setISRepeatPasswordVIsible((currentState) => !currentState)
+                                setIsRepeatPasswordVisible((currentState) => !currentState)
                             }} />}
                         </span>
                     </Form.Control>
@@ -170,7 +170,7 @@ export function SheetFormSingIn({ open, onOpenChange }: SheetFormSingInProps) {
                     </span>
                 </div>
 
-                <Form.Control className="grid grid-cols-2 gap-3 space-y-0">
+                <Form.Control className="grid grid-cols-2 gap-5 space-y-0">
                     <Button.Root color="secondary" className="col-span-1">
                         Acessar
                     </Button.Root>

@@ -38,7 +38,7 @@ interface SheetFormSingUpProps {
 }
 export function SheetFormSingUp({ open, onOpenChange }: SheetFormSingUpProps) {
     const [isPasswordVisible, setIsPasswordVIsible] = useState<boolean>(true);
-    const [isRepeatPasswordVisible, setIsRepeatPasswordVIsible] = useState<boolean>(true);
+    const [isRepeatPasswordVisible, setIsRepeatPasswordVisible] = useState<boolean>(true);
 
 
     const { register, handleSubmit, watch, reset, formState: {
@@ -169,17 +169,17 @@ export function SheetFormSingUp({ open, onOpenChange }: SheetFormSingUpProps) {
                         <Form.Input id="repeatPassword" className="placeholder-white/50" type={`${isRepeatPasswordVisible ? "text" : "password"}`} placeholder="Repita sua senha"  {...register("repeatPassword")} />
                         <span className=" absolute top-[39px] right-3 cursor-pointer text-secondary-white ">
                             {isRepeatPasswordVisible && <Eye className="w-6 h-6 " onClick={() => {
-                                setIsRepeatPasswordVIsible((currentState) => !currentState)
+                                setIsRepeatPasswordVisible((currentState) => !currentState)
                             }} />}
                             {!isRepeatPasswordVisible && <EyeOff className="w-6 h-6 " onClick={() => {
-                                setIsRepeatPasswordVIsible((currentState) => !currentState)
+                                setIsRepeatPasswordVisible((currentState) => !currentState)
                             }} />}
                         </span>
                     </Form.Control>
                 </Form.Control>
 
 
-                <Form.Control className="grid grid-cols-2 gap-3 space-y-0 mb-9">
+                <Form.Control className="grid grid-cols-2 gap-5 space-y-0 mb-9">
                     <Button.Root color="secondary" className="col-span-1">
                         Acessar
                     </Button.Root>
@@ -192,7 +192,7 @@ export function SheetFormSingUp({ open, onOpenChange }: SheetFormSingUpProps) {
             </Form.Root>
 
             <p className="text-sm text-white text-justify font-light">
-                Ao clicar em “Criar conta”, certifico que tenho 16 anos ou mais e aceito os Termos de Uso, as Políticas de Privacidade e as Políticas de Cookies.
+                Ao clicar em “Criar conta”, certifico que tenho 16 anos ou mais e aceito os <span className="underline ">Termos de Uso</span>, as <span className="underline ">Políticas de Privacidade</span> e as <span className="underline ">Políticas de Cookies.</span>
             </p>
         </SheetContent>
     </Sheet>
