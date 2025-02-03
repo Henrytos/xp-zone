@@ -2,15 +2,9 @@
 import Image from "next/image";
 import { Button } from "../button";
 import { useRouter } from "next/navigation";
-import {
-  Sheet,
-  SheetContent,
-  SheetDescription,
-  SheetHeader,
-  SheetTitle,
-} from "../ui/sheet";
 import { useState } from "react";
-import { SheetFormSingIn } from "./sheet-sing-in";
+import { SheetFormSingIn } from "./sheet-form-sing-in";
+import { SheetFormSingUp } from "./sheet-form-sing-up";
 
 
 
@@ -63,21 +57,7 @@ export function Header() {
         <SheetFormSingIn open={openSheetSingIn} onOpenChange={handleCLickSingInButton} />
 
         {/* sheet  advertise*/}
-        <Sheet
-          open={openSheetAdvertise}
-          onOpenChange={handleCLickAdvertiseButton}
-          defaultOpen={true}
-        >
-          <SheetContent>
-            <SheetHeader>
-              <SheetTitle>Are you absolutely sure?</SheetTitle>
-              <SheetDescription>
-                This action cannot be undone. This will permanently delete your
-                account and remove your data from our servers.
-              </SheetDescription>
-            </SheetHeader>
-          </SheetContent>
-        </Sheet>
+        <SheetFormSingUp open={openSheetAdvertise} onOpenChange={handleCLickAdvertiseButton} />
       </div>
     </header>
   );
