@@ -65,7 +65,7 @@ export function SheetFormSingUp({ open, onOpenChange }: SheetFormSingUpProps) {
     const isRepeatPasswordValid = !Boolean(errors.repeatPassword) && getValues("repeatPassword").length > 0;
     const isEmailValid = !Boolean(errors.email) && getValues("email").length > 0;
     const isRepeatEmailValid = !Boolean(errors.repeatEmail) && getValues("repeatEmail").length > 0;
-    const isFullNameValid = !Boolean(errors.fullName) && getValues("fullName").length > 10;
+    const isFullNameValid = !Boolean(errors.fullName) && getValues("fullName").length > 0;
 
     const isPasswordsAreHitting: boolean = watch("password") == watch("repeatPassword");
     const isEmailsAreHitting: boolean = watch("email") == watch("repeatEmail");
