@@ -27,7 +27,6 @@ export function Header() {
   };
 
 
-  console.log("renderizou")
 
   return (
     <header className="flex justify-between items-center mt-8 h-28 w-full max-w-[80%] m-auto">
