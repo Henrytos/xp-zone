@@ -12,7 +12,10 @@ export default {
   		fontFamily: {
   			'open-sans': [
   				'var(--font-open-sans)'
-  			]
+  			],
+			'orbitron':[
+				'var(--font-orbitron)'
+			]
   		},
   		colors: {
   			primary: {
