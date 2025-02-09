@@ -122,7 +122,7 @@ body {
         background-position: center center;
         position: relative;
     }
-    .bg-home-start::before {
+    .bg-shadow-left::before {
         content: " ";
         position: absolute;
         width: 100%;
@@ -153,7 +153,7 @@ body {
         );
         filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#120428",endColorstr="#120428",GradientType=1);
     }
-    .bg-home-start::after {
+    .bg-shadow-bottom::after {
         content: " ";
         position: absolute;
         width: 100%;
