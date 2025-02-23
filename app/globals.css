@@ -231,3 +231,14 @@ body {
     --text-paragraph: "16px";
     --text-label: "14px";
 }
+
+
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+    }
+  body {
+    @apply bg-background text-foreground;
+    }
+}
