@@ -8,7 +8,7 @@ const orbitron = Orbitron({
   weight: ["400", "500", "600", "700"],
   variable: "--font-orbitron",
 });
-export default function HomePage() {
+export default async function HomePage() {
   return (
     <main className="min-h-screen w-full">
       <div className="w-full h-screen bg-home-start bg-shadow-left bg-shadow-bottom">

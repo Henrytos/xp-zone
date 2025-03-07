@@ -64,9 +64,10 @@ export function SearchGameForm() {
               },
             }}
             className={clsx(
-              "bg-transparent  text-2xl  text-red-500 transition-all px-4 py-5 focus:outline-none w-[60%]",
+              "bg-transparent  text-2xl   transition-all px-4 py-5 focus:outline-none w-[60%]",
               {
-                "text-redd-500": isInvalidForm,
+                "text-red-500": isInvalidForm,
+                "text-white": !isInvalidForm,
               }
             )}
             {...form.register("search")}
