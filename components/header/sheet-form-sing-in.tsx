@@ -8,7 +8,6 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { useState } from "react";
-import { signIn } from "next-auth/react";
 
 const formSingUpSchema = z
   .object({
@@ -93,13 +92,7 @@ export function SheetFormSingIn({ open, onOpenChange }: SheetFormSingInProps) {
           Faça seu login e acesse o sistema
         </h3>
 
-        <Button.Root
-          color="tertiary"
-          className="w-full mb-5"
-          onClick={() => {
-            signIn();
-          }}
-        >
+        <Button.Root color="tertiary" className="w-full mb-5">
           <Button.Icon>
             <Image
               src="/logo/gogle-icon.png"
