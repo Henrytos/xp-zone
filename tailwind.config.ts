@@ -13,7 +13,7 @@ export default {
   			'open-sans': [
   				'var(--font-open-sans)'
   			],
-			'orbitron':[
+			orbitron:[
 				'var(--font-orbitron)'
 			]
   		},
@@ -96,5 +96,6 @@ export default {
   		}
   	}
   },
+  // eslint-disable-next-line @typescript-eslint/no-require-imports
   plugins: [require("tailwindcss-animate")],
 } satisfies Config;
