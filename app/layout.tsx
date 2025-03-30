@@ -1,11 +1,6 @@
 import type { Metadata } from "next";
-import { Open_Sans } from "next/font/google";
 import "./globals.css";
-
-const openSans = Open_Sans({
-  weight: ["700", "400"],
-  variable: "--font-open-sans",
-});
+import { openSans, orbitron } from "./fonts";
 
 export const metadata: Metadata = {
   title: "Xp zone",
@@ -20,7 +15,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-br">
-      <body className={`${openSans.className} antialiased`}>{children}</body>
+      <body
+        className={`${orbitron.variable} ${openSans.variable}  antialiased`}
+      >
+        {children}
+      </body>
     </html>
   );
 }
