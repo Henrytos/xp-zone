@@ -2,7 +2,7 @@ import { ReactNode } from "react";
 import { tv, type VariantProps } from "tailwind-variants";
 
 const title = tv({
-  base: " font-medium ",
+  base: "font-medium",
   variants: {
     color: {
       gradient: "text-transparent inline-block bg-radiant-linear bg-clip-text",
@@ -10,6 +10,9 @@ const title = tv({
     },
     size: {
       h1: "text-5xl/tight",
+      h2: "text-4xl",
+      h3: "text-3xl",
+      h4: "text-2xl",
     },
     font: {
       "open-sans": "font-open-sans",

@@ -178,22 +178,10 @@
   }
 
   .bg-radiant-linear {
-    background: rgb(254, 150, 82);
-    background: -moz-linear-gradient(
-      90deg,
-      rgba(229, 74, 100, 1) 0%,
-      rgba(254, 150, 82, 1) 100%
-    );
-    background: -webkit-linear-gradient(
-      90deg,
-      rgba(229, 74, 100, 1) 0%,
-      rgba(254, 150, 82, 1) 100%
-    );
-    background: linear-gradient(
-      90deg,
-      rgba(229, 74, 100, 1) 0%,
-      rgba(254, 150, 82, 1) 100%
-    );
+    background: #fe9652;
+    background: -moz-linear-gradient(90deg, #e54a64 0%, #fe9652 100%);
+    background: -webkit-linear-gradient(90deg, #e54a64 0%, #fe9652 100%);
+    background: linear-gradient(90deg, #e54a64 0%, #fe9652 100%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#fe9652",endColorstr="#e54a64",GradientType=1);
   }
 
