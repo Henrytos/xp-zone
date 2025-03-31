@@ -13,6 +13,7 @@ import {
 } from "@/components/ui/select";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { motion } from "framer-motion";
+import { ChevronDown } from "lucide-react";
 import Image from "next/image";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -185,7 +186,7 @@ export default function HomePage() {
           />
         </section>
       </section>
-      <section className="w-[80%]  m-auto flex flex-col gap-24 justify-center items-center">
+      <section className="w-[80%] m-auto flex flex-col gap-24 justify-center items-center">
         <Title color="gradient" size="h2">
           Como funciona
         </Title>
@@ -302,7 +303,7 @@ export default function HomePage() {
           </form>
         </Form>
       </section>
-      <section className="w-[80%] min-h-screen pb-20 m-auto  flex flex-col items-center ">
+      <section className="w-[80%] m-auto min-h-screen pb-20  flex flex-col items-center ">
         <div className="flex flex-col items-center w-full ">
           <Title
             color="gradient"
@@ -431,6 +432,180 @@ export default function HomePage() {
           Entrar para a comunidade XP Zone
         </Button.Root>
       </section>
+      <section className="w-[80%]  m-auto grid grid-cols-10 content-center items-center gap-20">
+        <div className="col-span-4 ">
+          <Image
+            src="/images/card-sample.png"
+            alt="card to character"
+            width={507}
+            height={694}
+            quality={100}
+            className="  w-full  object-contain"
+          />
+        </div>
+        <div className=" col-span-6 flex flex-col gap-16 ">
+          <div>
+            <Title color="white" size="h2">
+              Card Zone
+            </Title>
+            <Title color="gradient" size="h2">
+              Presentei uma amigo
+            </Title>
+          </div>
+
+          <div className="space-y-10">
+            <Text color="purple" size="2xl">
+              Você pode comprar{" "}
+              <span className="font-bold">
+                Cards Zones para presentear seus amigos
+              </span>
+              , com eles é possível comprar seus jogos favoritos na sua cidade e
+              receber no conforto da sua casa.
+              <br />
+              <br />
+              Aproveite e compre também nas lojas da XP Zone os melhores artigos
+              gamers.
+            </Text>
+            <Button.Root>Comprar agora</Button.Root>
+          </div>
+        </div>
+      </section>
+      <footer className="w-full px-[10%]  m-auto mt-52 py-7 border-t-[5px] border-[#2B0B5D] ">
+        <div className="grid grid-cols-11 gap-4  ">
+          <div className="col-span-3">
+            <Title color="gradient" size="h2">
+              Um lugar para jogadores
+            </Title>
+            <span className="flex gap-5 items-center mt-12">
+              <Image
+                src="/images/icons/brasil-icon.png"
+                alt="icon brazil"
+                width={36}
+                height={36}
+                quality={100}
+              />
+              <Text color="purple" size="2xl">
+                Português do Brasil
+              </Text>
+              <ChevronDown width={36} height={36} className="text-[#BFB4D0]" />
+            </span>
+            <div className="flex gap-4 items-center mt-10">
+              <Image
+                src="/images/icons/yt-icon.png"
+                alt="icon youtube"
+                width={44.15}
+                height={31}
+                quality={100}
+                className="text-white"
+              />
+
+              <Image
+                src="/images/icons/insta-icon.png"
+                alt="icon instagram"
+                width={33.33}
+                height={33.33}
+                quality={100}
+                className="text-white"
+              />
+
+              <Image
+                src="/images/icons/face-icon.png"
+                alt="icon facebook"
+                width={30}
+                height={30}
+                quality={100}
+                className="text-white"
+              />
+              <Image
+                src="/images/icons/link-icon.png"
+                alt="icon facebook"
+                width={30}
+                height={30}
+                quality={100}
+                className="text-white"
+              />
+            </div>
+          </div>
+          <div className="col-span-2 space-y-5">
+            <Title size="h3" color="white" weight="bold">
+              Empresa
+            </Title>
+            <Text color="white" size="2xl">
+              Sobre
+            </Text>
+            <Text color="white" size="2xl">
+              Empregos
+            </Text>
+            <Text color="white" size="2xl">
+              Marca
+            </Text>
+            <Text color="white" size="2xl">
+              Sala de imprensa
+            </Text>
+          </div>
+          <div className="col-span-2 space-y-5">
+            <Title size="h3" color="white" weight="bold">
+              Recursos
+            </Title>
+            <Text color="white" size="2xl">
+              Suporte
+            </Text>
+            <Text color="white" size="2xl">
+              Segurança
+            </Text>
+            <Text color="white" size="2xl">
+              Blog
+            </Text>
+            <Text color="white" size="2xl">
+              Comunidade{" "}
+            </Text>
+          </div>
+          <div className="col-span-2 space-y-5">
+            <Title size="h3" color="white" weight="bold">
+              Política
+            </Title>
+            <Text color="white" size="2xl">
+              Termos
+            </Text>
+            <Text color="white" size="2xl">
+              Privacidade
+            </Text>
+            <Text color="white" size="2xl">
+              Cookies
+            </Text>
+            <Text color="white" size="2xl">
+              Moderação{" "}
+            </Text>
+          </div>
+          <div className="col-span-2 space-y-5">
+            <Title size="h3" color="white" weight="bold">
+              Aplicativo
+            </Title>
+            <Text color="white" size="2xl">
+              Baixe para Android
+            </Text>
+            <Text color="white" size="2xl">
+              Baixe para iOS
+            </Text>
+          </div>
+        </div>
+        <div className=" w-full h-3 rounded-full bg-radiant-linear my-14"></div>
+        <div className="flex justify-between items-center">
+          <Image
+            src="/logo/logo-linear-horizontal.png"
+            alt="logotipo da xp zone"
+            width={92}
+            height={108}
+            className=" h-full w-auto object-contain cursor-pointer mb-9"
+            quality={100}
+          />
+          <Text size="2xl">
+            Desenvolvido por <span className="font-bold">Tamires Nunes</span> e{" "}
+            <span className="font-bold">Henry Franz</span>
+          </Text>
+          <Button.Root>Anunciar grátis</Button.Root>
+        </div>
+      </footer>
     </main>
   );
 }
