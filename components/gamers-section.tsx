@@ -2,7 +2,7 @@
 import { motion } from "framer-motion";
 import { Title } from "./title";
 import Image from "next/image";
-import { Button } from "./button";
+import { ButtonAction } from "./button-action";
 
 export function GamersSection() {
   return (
@@ -132,9 +132,9 @@ export function GamersSection() {
           </motion.span>
         </div>
 
-        <Button.Root className=" col-start-2 m-auto mt-20 z-50">
+        <ButtonAction className=" col-start-2 m-auto mt-20 z-50">
           Entrar para a comunidade XP Zone
-        </Button.Root>
+        </ButtonAction>
       </section>
     </>
   );
