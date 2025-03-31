@@ -1,8 +1,8 @@
 import Image from "next/image";
-import { Title } from "./title";
-import { Text } from "./text";
+import { Title } from "../title";
+import { Text } from "../text";
 import { ChevronDown } from "lucide-react";
-import { Button } from "./button";
+import { ButtonAction } from "../button-action";
 
 export function Footer() {
   return (
@@ -140,7 +140,7 @@ export function Footer() {
             Desenvolvido por <span className="font-bold">Tamires Nunes</span> e{" "}
             <span className="font-bold">Henry Franz</span>
           </Text>
-          <Button.Root>Anunciar grátis</Button.Root>
+          <ButtonAction>Anunciar grátis</ButtonAction>
         </div>
       </footer>
     </>

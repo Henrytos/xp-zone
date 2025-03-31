@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { Title } from "./title";
 import { Text } from "./text";
-import { Button } from "./button";
+import { ButtonAction } from "./button-action";
 
 export function KnowTheApplicationSection() {
   return (
@@ -89,7 +89,7 @@ export function KnowTheApplicationSection() {
               Ganhe XP a cada interação.
             </Text>
           </div>
-          <Button.Root>Anunciar grátis</Button.Root>
+          <ButtonAction>Anunciar grátis</ButtonAction>
         </div>
       </section>
     </>

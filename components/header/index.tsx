@@ -5,18 +5,24 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { SheetFormSingIn } from "./sheet-form-sing-in";
 import { SheetFormSingUp } from "./sheet-form-sing-up";
+import { useSingInOpen } from "@/app/_providers/sing-in-open-provider";
 
 export function Header() {
   const router = useRouter();
-  const [openSheetSingIn, setOpenSheetSingIn] = useState<boolean>(false);
   const [openSheetAdvertise, setOpenSheetAdvertise] = useState<boolean>(false);
 
   const handleCLickInLogo = () => {
     router.push("/");
   };
 
+  const { isOpen, closeSingIn, openSingIn } = useSingInOpen();
+
   const handleCLickSingInButton = () => {
-    setOpenSheetSingIn((currentState) => !currentState);
+    if (isOpen) {
+      closeSingIn();
+    } else {
+      openSingIn();
+    }
   };
 
   const handleCLickAdvertiseButton = () => {
@@ -47,10 +53,7 @@ export function Header() {
         </Button.Root>
 
         {/* sheet  sing in*/}
-        <SheetFormSingIn
-          open={openSheetSingIn}
-          onOpenChange={handleCLickSingInButton}
-        />
+        <SheetFormSingIn open={isOpen} onOpenChange={handleCLickSingInButton} />
 
         {/* sheet  advertise*/}
         <SheetFormSingUp
