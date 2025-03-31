@@ -118,6 +118,13 @@
     background-position: center center;
     position: relative;
   }
+  .bg-home-second {
+    background-image: url("/images/background-second.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    position: relative;
+  }
   .bg-shadow-left::before {
     content: " ";
     position: absolute;
@@ -176,6 +183,33 @@
     );
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#120428",endColorstr="#000000",GradientType=1);
   }
+  .bg-shadow-top::after {
+    content: " ";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    bottom: 0;
+    background: rgb(18, 4, 40);
+    background: -moz-linear-gradient(
+      180deg,
+      rgba(18, 4, 40, 1) 0%,
+      rgba(9, 2, 20, 0.49761911600577735) 16%,
+      rgba(0, 0, 0, 0) 32%
+    );
+    background: -webkit-linear-gradient(
+      180deg,
+      rgba(18, 4, 40, 1) 0%,
+      rgba(9, 2, 20, 0.49761911600577735) 16%,
+      rgba(0, 0, 0, 0) 32%
+    );
+    background: linear-gradient(
+      180deg,
+      rgba(18, 4, 40, 1) 0%,
+      rgba(9, 2, 20, 0.49761911600577735) 16%,
+      rgba(0, 0, 0, 0) 32%
+    );
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#120428",endColorstr="#000000",GradientType=1);
+  }
 
   .bg-radiant-linear {
     background: #fe9652;
@@ -203,6 +237,17 @@
       rgba(229, 74, 100, 1) 100%
     );
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#fe9652",endColorstr="#e54a64",GradientType=1);
+  }
+  .text-radiant-horizontal {
+    background: linear-gradient(
+      90deg,
+      rgba(254, 150, 82, 1) 0%,
+      rgba(229, 74, 100, 1) 100%
+    );
+    background-clip: text;
+    color: transparent;
+    font-size: 48px;
+    font-family: Arial, sans-serif;
   }
 }
 

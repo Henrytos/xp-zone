@@ -1,4 +1,5 @@
-import { ReactNode } from "react";
+import { ComponentProps, ReactNode } from "react";
+import { twMerge } from "tailwind-merge";
 import { tv, type VariantProps } from "tailwind-variants";
 
 const title = tv({
@@ -18,24 +19,33 @@ const title = tv({
       "open-sans": "font-open-sans",
       orbitron: "font-orbitron",
     },
+    weight: {
+      normal: "font-normal",
+      medium: "font-medium",
+      semibold: "font-semibold",
+      bold: "font-bold",
+    },
   },
   defaultVariants: {
     color: "white",
     size: "h1",
     font: "open-sans",
+    weight: "bold",
   },
 });
 
 type TitleVariants = VariantProps<typeof title>;
 
-interface TitleProps extends TitleVariants {
+interface TitleProps
+  extends TitleVariants,
+    Pick<ComponentProps<"h1">, "className"> {
   children: ReactNode;
 }
 
-export function Title({ children, ...props }: TitleProps) {
+export function Title({ children, className, ...props }: TitleProps) {
   return (
     <>
-      <h1 className={title(props)}>{children}</h1>
+      <h1 className={twMerge(title(props), className)}>{children}</h1>
     </>
   );
 }

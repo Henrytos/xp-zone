@@ -1,4 +1,5 @@
-import { ReactNode } from "react";
+import { ComponentProps, ReactNode } from "react";
+import { twMerge } from "tailwind-merge";
 import { tv, type VariantProps } from "tailwind-variants";
 
 const text = tv({
@@ -29,10 +30,12 @@ const text = tv({
 
 type TextVariants = VariantProps<typeof text>;
 
-interface TextProps extends TextVariants {
+interface TextProps
+  extends TextVariants,
+    Pick<ComponentProps<"p">, "className"> {
   children: ReactNode;
 }
 
-export function Text({ children, ...props }: TextProps) {
-  return <p className={text(props)}>{children}</p>;
+export function Text({ children, className, ...props }: TextProps) {
+  return <p className={twMerge(text(props), className)}>{children}</p>;
 }
