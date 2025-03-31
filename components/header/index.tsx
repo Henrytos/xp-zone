@@ -6,13 +6,10 @@ import { useState } from "react";
 import { SheetFormSingIn } from "./sheet-form-sing-in";
 import { SheetFormSingUp } from "./sheet-form-sing-up";
 
-
-
 export function Header() {
   const router = useRouter();
   const [openSheetSingIn, setOpenSheetSingIn] = useState<boolean>(false);
   const [openSheetAdvertise, setOpenSheetAdvertise] = useState<boolean>(false);
-
 
   const handleCLickInLogo = () => {
     router.push("/");
@@ -26,10 +23,8 @@ export function Header() {
     setOpenSheetAdvertise((currentState) => !currentState);
   };
 
-
-
   return (
-    <header className="flex justify-between items-center mt-8 h-28 w-full max-w-[80%] m-auto">
+    <header className="flex justify-between items-center mt-8 h-28 w-full max-w-[80%] m-auto z-50">
       <Image
         src="/logo/logo-linear-vertical.png"
         alt="logotipo da xp zone"
@@ -52,10 +47,16 @@ export function Header() {
         </Button.Root>
 
         {/* sheet  sing in*/}
-        <SheetFormSingIn open={openSheetSingIn} onOpenChange={handleCLickSingInButton} />
+        <SheetFormSingIn
+          open={openSheetSingIn}
+          onOpenChange={handleCLickSingInButton}
+        />
 
         {/* sheet  advertise*/}
-        <SheetFormSingUp open={openSheetAdvertise} onOpenChange={handleCLickAdvertiseButton} />
+        <SheetFormSingUp
+          open={openSheetAdvertise}
+          onOpenChange={handleCLickAdvertiseButton}
+        />
       </div>
     </header>
   );
