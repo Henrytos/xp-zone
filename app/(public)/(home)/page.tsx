@@ -303,174 +303,184 @@ export default function HomePage() {
           </form>
         </Form>
       </section>
-      <section className="w-[80%] m-auto min-h-screen pb-20  flex flex-col items-center ">
-        <div className="flex flex-col items-center w-full ">
-          <Title
-            color="gradient"
-            size="h2"
-            className="translate-y-20 text-center"
-          >
-            Faça novos amigos
-          </Title>
-          <Title color="gradient" className="text-[225px] text-center">
-            GAMERS
-          </Title>
-        </div>
 
-        <div className="grid grid-cols-4  gap-x-3 gap-y-6 w-full relative ">
-          <motion.span
-            animate={{
-              translateY: ["50%", "48%", "50%"],
-              translateX: ["-50%"],
-            }}
-            transition={{
-              duration: 1,
-              repeat: Infinity,
-              repeatType: "loop",
-              ease: "easeOut",
-            }}
-            className="absolute left-0 bottom-0 -translate-x-1/2 translate-y-1/2"
-          >
-            <Image
-              width={303}
-              height={327}
-              className="object-contain "
-              src="/images/characters/character-control.png"
-              alt="character control"
-              quality={100}
-            />
-          </motion.span>
-          <Image
-            width={280}
-            height={270}
-            className="w-full h-auto object-contain"
-            src="/images/persons/person-1.png"
-            alt="photo person one"
-            quality={100}
-          />
-          <Image
-            width={280}
-            height={270}
-            className="w-full h-auto object-contain"
-            src="/images/persons/person-2.png"
-            alt="photo person one"
-            quality={100}
-          />
-          <Image
-            width={280}
-            height={270}
-            className="w-full h-auto object-contain"
-            src="/images/persons/person-3.png"
-            alt="photo person one"
-            quality={100}
-          />
-          <Image
-            width={280}
-            height={270}
-            className="w-full h-auto object-contain"
-            src="/images/persons/person-4.png"
-            alt="photo person one"
-            quality={100}
-          />
-          <Image
-            width={280}
-            height={270}
-            className="w-full h-auto object-contain"
-            src="/images/persons/person-5.png"
-            alt="photo person one"
-            quality={100}
-          />
-          <Image
-            width={280}
-            height={270}
-            className="w-full h-auto object-contain"
-            src="/images/persons/person-6.png"
-            alt="photo person one"
-            quality={100}
-          />
-          <Image
-            width={280}
-            height={270}
-            className="w-full h-auto object-contain"
-            src="/images/persons/person-2.png"
-            alt="photo person one"
-            quality={100}
-          />
-          <Image
-            width={280}
-            height={270}
-            className="w-full h-auto object-contain"
-            src="/images/persons/person-3.png"
-            alt="photo person one"
-            quality={100}
-          />
-          <motion.span
-            animate={{
-              translateY: ["-50%", "-48%", "-50%"],
-              translateX: ["50%"],
-            }}
-            transition={{
-              duration: 1,
-              repeat: Infinity,
-              repeatType: "loop",
-              ease: "easeOut",
-            }}
-            className="absolute right-0 top-0 translate-x-1/2 -translate-y-1/2"
-          >
-            <Image
-              width={303}
-              height={327}
-              className="object-contain  "
-              src="/images/characters/character-chat.png"
-              alt="character control"
-              quality={100}
-            />
-          </motion.span>
-        </div>
-
-        <Button.Root className=" col-start-2 m-auto mt-20">
-          Entrar para a comunidade XP Zone
-        </Button.Root>
-      </section>
-      <section className="w-[80%]  m-auto grid grid-cols-10 content-center items-center gap-20">
-        <div className="col-span-4 ">
-          <Image
-            src="/images/card-sample.png"
-            alt="card to character"
-            width={507}
-            height={694}
-            quality={100}
-            className="  w-full  object-contain"
-          />
-        </div>
-        <div className=" col-span-6 flex flex-col gap-16 ">
-          <div>
-            <Title color="white" size="h2">
-              Card Zone
+      <div className="relative z-0">
+        <section className="w-[80%] m-auto min-h-screen pb-20  flex flex-col items-center z-50 ">
+          <div className="flex flex-col items-center w-full z-50">
+            <Title
+              color="gradient"
+              size="h2"
+              className="translate-y-20 text-center z-50"
+            >
+              Faça novos amigos
             </Title>
-            <Title color="gradient" size="h2">
-              Presentei uma amigo
+            <Title color="gradient" className="text-[225px] text-center z-50">
+              GAMERS
             </Title>
           </div>
 
-          <div className="space-y-10">
-            <Text color="purple" size="2xl">
-              Você pode comprar{" "}
-              <span className="font-bold">
-                Cards Zones para presentear seus amigos
-              </span>
-              , com eles é possível comprar seus jogos favoritos na sua cidade e
-              receber no conforto da sua casa.
-              <br />
-              <br />
-              Aproveite e compre também nas lojas da XP Zone os melhores artigos
-              gamers.
-            </Text>
-            <Button.Root>Comprar agora</Button.Root>
+          <div className="grid grid-cols-4  gap-x-3 gap-y-6 w-full relative z-50">
+            <motion.span
+              animate={{
+                translateY: ["50%", "48%", "50%"],
+                translateX: ["-50%"],
+              }}
+              transition={{
+                duration: 1,
+                repeat: Infinity,
+                repeatType: "loop",
+                ease: "easeOut",
+              }}
+              className="absolute left-0 bottom-0 -translate-x-1/2 translate-y-1/2 z-50"
+            >
+              <Image
+                width={303}
+                height={327}
+                className="object-contain z-50 "
+                src="/images/characters/character-control.png"
+                alt="character control"
+                quality={100}
+              />
+            </motion.span>
+            <Image
+              width={280}
+              height={270}
+              className="w-full h-auto object-contain"
+              src="/images/persons/person-1.png"
+              alt="photo person one"
+              quality={100}
+            />
+            <Image
+              width={280}
+              height={270}
+              className="w-full h-auto object-contain"
+              src="/images/persons/person-2.png"
+              alt="photo person one"
+              quality={100}
+            />
+            <Image
+              width={280}
+              height={270}
+              className="w-full h-auto object-contain"
+              src="/images/persons/person-3.png"
+              alt="photo person one"
+              quality={100}
+            />
+            <Image
+              width={280}
+              height={270}
+              className="w-full h-auto object-contain"
+              src="/images/persons/person-4.png"
+              alt="photo person one"
+              quality={100}
+            />
+            <Image
+              width={280}
+              height={270}
+              className="w-full h-auto object-contain"
+              src="/images/persons/person-5.png"
+              alt="photo person one"
+              quality={100}
+            />
+            <Image
+              width={280}
+              height={270}
+              className="w-full h-auto object-contain"
+              src="/images/persons/person-6.png"
+              alt="photo person one"
+              quality={100}
+            />
+            <Image
+              width={280}
+              height={270}
+              className="w-full h-auto object-contain"
+              src="/images/persons/person-2.png"
+              alt="photo person one"
+              quality={100}
+            />
+            <Image
+              width={280}
+              height={270}
+              className="w-full h-auto object-contain"
+              src="/images/persons/person-3.png"
+              alt="photo person one"
+              quality={100}
+            />
+            <motion.span
+              animate={{
+                translateY: ["-50%", "-48%", "-50%"],
+                translateX: ["50%"],
+              }}
+              transition={{
+                duration: 1,
+                repeat: Infinity,
+                repeatType: "loop",
+                ease: "easeOut",
+              }}
+              className="absolute right-0 top-0 translate-x-1/2 -translate-y-1/2"
+            >
+              <Image
+                width={303}
+                height={327}
+                className="object-contain  "
+                src="/images/characters/character-chat.png"
+                alt="character control"
+                quality={100}
+              />
+            </motion.span>
           </div>
-        </div>
-      </section>
-      <footer className="w-full px-[10%]  m-auto mt-52 py-7 border-t-[5px] border-[#2B0B5D] ">
+
+          <Button.Root className=" col-start-2 m-auto mt-20 z-50">
+            Entrar para a comunidade XP Zone
+          </Button.Root>
+        </section>
+
+        <span className="w-full min-h-screen bg-home-three absolute top-0  translate-y-2/3 ">
+          <div className="bg-shadow-bottom"></div>
+          <div className="bg-shadow-top"></div>
+        </span>
+
+        <section className="w-[80%] min-h-screen m-auto grid grid-cols-10 content-center items-center gap-20 z-50">
+          <div className="col-span-4 z-50">
+            <Image
+              src="/images/card-sample.png"
+              alt="card to character"
+              width={507}
+              height={694}
+              quality={100}
+              className="  w-full  object-contain z-50"
+            />
+          </div>
+          <div className=" col-span-6 flex flex-col gap-16 z-50">
+            <div>
+              <Title color="white" size="h2">
+                Card Zone
+              </Title>
+              <Title color="gradient" size="h2">
+                Presentei uma amigo
+              </Title>
+            </div>
+
+            <div className="space-y-10">
+              <Text color="purple" size="2xl">
+                Você pode comprar{" "}
+                <span className="font-bold">
+                  Cards Zones para presentear seus amigos
+                </span>
+                , com eles é possível comprar seus jogos favoritos na sua cidade
+                e receber no conforto da sua casa.
+                <br />
+                <br />
+                Aproveite e compre também nas lojas da XP Zone os melhores
+                artigos gamers.
+              </Text>
+              <Button.Root>Comprar agora</Button.Root>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <footer className="w-full px-[10%]  m-auto py-7 border-t-[5px] border-[#2B0B5D] ">
         <div className="grid grid-cols-11 gap-4  ">
           <div className="col-span-3">
             <Title color="gradient" size="h2">

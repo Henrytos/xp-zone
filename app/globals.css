@@ -125,6 +125,14 @@
     background-position: center center;
     position: relative;
   }
+  .bg-home-three {
+    background-image: url("/images/background-three.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    position: relative;
+  }
+
   .bg-shadow-left::before {
     content: " ";
     position: absolute;

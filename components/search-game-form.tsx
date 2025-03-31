@@ -97,7 +97,7 @@ export function SearchGameForm() {
               <FormItem
                 className={twMerge(
                   clsx(
-                    "w-[30%] text-2xl text-white  outline-none font-light flex gap-2 items-center focus:outline-none border-none focus:border-none  selection:border-none selection:outline-none w-[30%]",
+                    "text-2xl text-white  outline-none font-light flex gap-2 items-center focus:outline-none border-none focus:border-none  selection:border-none selection:outline-none w-[30%]",
                     {
                       "text-red-500": isInvalidForm,
                     }
