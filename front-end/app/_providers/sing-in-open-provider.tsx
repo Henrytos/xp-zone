@@ -1,5 +1,5 @@
-"use client";
-import { ComponentProps, createContext, useContext, useState } from "react";
+'use client';
+import { ComponentProps, createContext, useContext, useState } from 'react';
 
 interface ContextSingInOpenProviderProps {
   isOpen: boolean;
@@ -13,7 +13,7 @@ export const ContextSingInOpenProvider = createContext({
 
 export function SingInOpenProvider({
   children,
-}: Pick<ComponentProps<"div">, "children">) {
+}: Pick<ComponentProps<'div'>, 'children'>) {
   const [isOpenSingIn, setIsOpenSingIn] = useState<boolean>(false);
 
   const closeSingIn = () => {

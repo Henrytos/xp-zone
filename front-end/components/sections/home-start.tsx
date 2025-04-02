@@ -1,8 +1,8 @@
-import { CarrouselVideoGamesPlatforms } from "../carrousel-video-game-platforms";
-import { Header } from "../header";
-import { SearchGameForm } from "../search-game-form";
-import { Text } from "../text";
-import { Title } from "../title";
+import { CarrouselVideoGamesPlatforms } from '../carrousel-video-game-platforms';
+import { Header } from '../header';
+import { SearchGameForm } from '../search-game-form';
+import { Text } from '../text';
+import { Title } from '../title';
 
 export function HomeStart() {
   return (
@@ -18,8 +18,8 @@ export function HomeStart() {
           <div className="mt-20 max-w-[80%] mx-auto space-y-20 z-50">
             <div className="z-50">
               <Title font="orbitron" className="text-2xl md:text-4-xl">
-                {" "}
-                {">>"} Compre
+                {' '}
+                {'>>'} Compre
               </Title>
               <Title
                 color="gradient"

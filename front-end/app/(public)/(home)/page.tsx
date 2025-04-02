@@ -1,10 +1,10 @@
-import { Footer } from "@/components/footer";
-import { GamersSection } from "@/components/gamers-section";
-import { CardZoneSection } from "@/components/card-zone-section";
-import { HomeStart } from "@/components/sections/home-start";
-import { FunctionsApplicationSection } from "@/components/functions-application-section";
-import { ExperienceInApplicationSection } from "@/components/experience-in-application-section";
-import { KnowTheApplicationSection } from "@/components/know-the-application";
+import { Footer } from '@/components/footer';
+import { GamersSection } from '@/components/gamers-section';
+import { CardZoneSection } from '@/components/card-zone-section';
+import { HomeStart } from '@/components/sections/home-start';
+import { FunctionsApplicationSection } from '@/components/functions-application-section';
+import { ExperienceInApplicationSection } from '@/components/experience-in-application-section';
+import { KnowTheApplicationSection } from '@/components/know-the-application';
 
 export default function HomePage() {
   return (

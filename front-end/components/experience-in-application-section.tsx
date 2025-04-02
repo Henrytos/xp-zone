@@ -1,8 +1,8 @@
-"use client";
-import Image from "next/image";
-import { Text } from "./text";
-import { Title } from "./title";
-import { motion } from "framer-motion";
+'use client';
+import Image from 'next/image';
+import { Text } from './text';
+import { Title } from './title';
+import { motion } from 'framer-motion';
 
 export function ExperienceInApplicationSection() {
   return (
@@ -22,7 +22,7 @@ export function ExperienceInApplicationSection() {
           <div className="bg-[#2B0B5D] w-full flex flex-col gap-4 py-14 px-24 rounded-lg">
             <div className="flex items-center justify-center gap-1">
               <Title color="gradient" size="h2">
-                Você ganhou{" "}
+                Você ganhou{' '}
               </Title>
               <Title color="white" size="h2">
                 100 XP!
@@ -32,14 +32,14 @@ export function ExperienceInApplicationSection() {
               <span className="w-2/3 bg-radiant-linear h-3 absolute rounded-l-full ">
                 <motion.span
                   animate={{
-                    x: ["50%", "52%", "51%", "50%"],
-                    y: ["-20px", "-22px", "-18px", "-20px"],
+                    x: ['50%', '52%', '51%', '50%'],
+                    y: ['-20px', '-22px', '-18px', '-20px'],
                   }}
                   transition={{
                     duration: 0.5,
                     repeat: Infinity,
-                    repeatType: "loop",
-                    ease: "easeInOut",
+                    repeatType: 'loop',
+                    ease: 'easeInOut',
                   }}
                   className="absolute right-0 top-0 "
                 >

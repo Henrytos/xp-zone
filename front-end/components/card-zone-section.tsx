@@ -1,7 +1,7 @@
-import Image from "next/image";
-import { Title } from "./title";
-import { Text } from "./text";
-import { Button } from "./button";
+import Image from 'next/image';
+import { Title } from './title';
+import { Text } from './text';
+import { Button } from './button';
 
 export function CardZoneSection() {
   return (
@@ -29,7 +29,7 @@ export function CardZoneSection() {
 
           <div className="space-y-10">
             <Text color="purple" size="2xl">
-              Você pode comprar{" "}
+              Você pode comprar{' '}
               <span className="font-bold">
                 Cards Zones para presentear seus amigos
               </span>

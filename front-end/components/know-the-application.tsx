@@ -1,7 +1,7 @@
-import Image from "next/image";
-import { Title } from "./title";
-import { Text } from "./text";
-import { ButtonAction } from "./button-action";
+import Image from 'next/image';
+import { Title } from './title';
+import { Text } from './text';
+import { ButtonAction } from './button-action';
 
 export function KnowTheApplicationSection() {
   return (
@@ -22,7 +22,7 @@ export function KnowTheApplicationSection() {
           </Title>
           <Text color="purple" size="2xl">
             Aqui você encontra jogadores da sua cidade em uma <br />
-            comunidade segura{" "}
+            comunidade segura{' '}
             <span className="font-bold">
               para você trocar, comprar ou <br />
               vender seus artigos gamers
@@ -58,7 +58,7 @@ export function KnowTheApplicationSection() {
                 height={24}
                 quality={100}
               />
-              Troque seus jogos por outros;{" "}
+              Troque seus jogos por outros;{' '}
             </Text>
             <Text
               className="flex items-center justify-start gap-6"

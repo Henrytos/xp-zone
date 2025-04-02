@@ -1,17 +1,17 @@
-"use client";
-import { Eye, EyeOff, Check } from "lucide-react";
-import { Button } from "../button";
-import { Sheet, SheetContent, SheetTitle } from "../ui/sheet";
-import Image from "next/image";
-import Form from "./form";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { z } from "zod";
-import { useState } from "react";
+'use client';
+import { Eye, EyeOff, Check } from 'lucide-react';
+import { Button } from '../button';
+import { Sheet, SheetContent, SheetTitle } from '../ui/sheet';
+import Image from 'next/image';
+import Form from './form';
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { z } from 'zod';
+import { useState } from 'react';
 
 const formSingUpSchema = z
   .object({
-    email: z.string().email("email invali"),
+    email: z.string().email('email invali'),
     password: z.string().min(6).max(20),
     repeatPassword: z.string().min(6).max(20),
     rememberMyPassword: z.boolean().optional().default(false),
@@ -46,12 +46,12 @@ export function SheetFormSingIn({ open, onOpenChange }: SheetFormSingInProps) {
   } = useForm<FormSingUpSchema>({
     resolver: zodResolver(formSingUpSchema),
     defaultValues: {
-      email: "",
-      password: "",
-      repeatPassword: "",
+      email: '',
+      password: '',
+      repeatPassword: '',
       rememberMyPassword: false,
     },
-    mode: "onChange",
+    mode: 'onChange',
   });
 
   const handleFormSingUpSUbmit = (data: FormSingUpSchema) => {
@@ -60,14 +60,14 @@ export function SheetFormSingIn({ open, onOpenChange }: SheetFormSingInProps) {
     onOpenChange();
   };
 
-  const isToRememberPassword: boolean = watch("rememberMyPassword") == true;
+  const isToRememberPassword: boolean = watch('rememberMyPassword') == true;
   const isPasswordsAreHitting: boolean =
-    watch("password") == watch("repeatPassword");
+    watch('password') == watch('repeatPassword');
   const isPasswordValid =
-    !Boolean(errors.password) && getValues("password").length > 0;
+    !Boolean(errors.password) && getValues('password').length > 0;
   const isRepeatPasswordValid =
-    !Boolean(errors.repeatPassword) && getValues("repeatPassword").length > 0;
-  const isEmailValid = !Boolean(errors.email) && getValues("email").length > 0;
+    !Boolean(errors.repeatPassword) && getValues('repeatPassword').length > 0;
+  const isEmailValid = !Boolean(errors.email) && getValues('email').length > 0;
 
   return (
     <Sheet
@@ -134,14 +134,14 @@ export function SheetFormSingIn({ open, onOpenChange }: SheetFormSingInProps) {
               className="placeholder-white/50"
               type="email"
               placeholder="Digite seu email"
-              {...register("email")}
+              {...register('email')}
             />
           </Form.Control>
 
           <Form.Control className="grid grid-cols-2 gap-3 space-y-0">
             <Form.Control className="col-span-1 relative mb-0">
               <Form.Label htmlFor="password">
-                Crie uma senha{" "}
+                Crie uma senha{' '}
                 <Form.FieldState
                   isValid={isPasswordsAreHitting && isPasswordValid}
                 />
@@ -149,9 +149,9 @@ export function SheetFormSingIn({ open, onOpenChange }: SheetFormSingInProps) {
               <Form.Input
                 id="password"
                 className="placeholder-white/50"
-                type={`${isPasswordVisible ? "text" : "password"}`}
+                type={`${isPasswordVisible ? 'text' : 'password'}`}
                 placeholder="Crie uma senha"
-                {...register("password")}
+                {...register('password')}
               />
               <span className=" absolute top-[39px] right-3 cursor-pointer text-secondary-white ">
                 {isPasswordVisible && (
@@ -175,7 +175,7 @@ export function SheetFormSingIn({ open, onOpenChange }: SheetFormSingInProps) {
 
             <Form.Control className="col-span-1 relative mb-5">
               <Form.Label htmlFor="repeatPassword">
-                Repita sua senha{" "}
+                Repita sua senha{' '}
                 <Form.FieldState
                   isValid={isPasswordsAreHitting && isRepeatPasswordValid}
                 />
@@ -183,9 +183,9 @@ export function SheetFormSingIn({ open, onOpenChange }: SheetFormSingInProps) {
               <Form.Input
                 id="repeatPassword"
                 className="placeholder-white/50"
-                type={`${isRepeatPasswordVisible ? "text" : "password"}`}
+                type={`${isRepeatPasswordVisible ? 'text' : 'password'}`}
                 placeholder="Repita sua senha"
-                {...register("repeatPassword")}
+                {...register('repeatPassword')}
               />
               <span className=" absolute top-[39px] right-3 cursor-pointer text-secondary-white ">
                 {isRepeatPasswordVisible && (
@@ -193,7 +193,7 @@ export function SheetFormSingIn({ open, onOpenChange }: SheetFormSingInProps) {
                     className="w-6 h-6 "
                     onClick={() => {
                       setIsRepeatPasswordVisible(
-                        (currentState) => !currentState
+                        (currentState) => !currentState,
                       );
                     }}
                   />
@@ -203,7 +203,7 @@ export function SheetFormSingIn({ open, onOpenChange }: SheetFormSingInProps) {
                     className="w-6 h-6 "
                     onClick={() => {
                       setIsRepeatPasswordVisible(
-                        (currentState) => !currentState
+                        (currentState) => !currentState,
                       );
                     }}
                   />
@@ -218,13 +218,13 @@ export function SheetFormSingIn({ open, onOpenChange }: SheetFormSingInProps) {
                 id="rememberMyPassword"
                 type="checkbox"
                 className="appearance-none p-0 m-0 w-7 h-7  rounded-lg bg-gradient-to-r from-[#fe9652] to-[#e54a64] relative before:w-[24px] before:h-[24px] before:bg-secondary before:absolute before:top-1/2 before:left-1/2 before:-translate-x-1/2 before:-translate-y-1/2 before:rounded-lg scale-90"
-                {...register("rememberMyPassword")}
+                {...register('rememberMyPassword')}
               />
               {isToRememberPassword && (
                 <Check
                   className="text-[#fe9652] absolute top-0.5 left-0.5"
                   onClick={() => {
-                    setValue("rememberMyPassword", false);
+                    setValue('rememberMyPassword', false);
                   }}
                 />
               )}

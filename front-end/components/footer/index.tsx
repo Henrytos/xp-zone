@@ -1,8 +1,8 @@
-import Image from "next/image";
-import { Title } from "../title";
-import { Text } from "../text";
-import { ChevronDown } from "lucide-react";
-import { ButtonAction } from "../button-action";
+import Image from 'next/image';
+import { Title } from '../title';
+import { Text } from '../text';
+import { ChevronDown } from 'lucide-react';
+import { ButtonAction } from '../button-action';
 
 export function Footer() {
   return (
@@ -94,7 +94,7 @@ export function Footer() {
               Blog
             </Text>
             <Text color="white" size="2xl">
-              Comunidade{" "}
+              Comunidade{' '}
             </Text>
           </div>
           <div className="col-span-2 space-y-5">
@@ -111,7 +111,7 @@ export function Footer() {
               Cookies
             </Text>
             <Text color="white" size="2xl">
-              Moderação{" "}
+              Moderação{' '}
             </Text>
           </div>
           <div className="col-span-2 space-y-5">
@@ -137,7 +137,7 @@ export function Footer() {
             quality={100}
           />
           <Text size="2xl">
-            Desenvolvido por <span className="font-bold">Tamires Nunes</span> e{" "}
+            Desenvolvido por <span className="font-bold">Tamires Nunes</span> e{' '}
             <span className="font-bold">Henry Franz</span>
           </Text>
           <ButtonAction>Anunciar grátis</ButtonAction>

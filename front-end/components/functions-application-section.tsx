@@ -1,30 +1,30 @@
-"use client";
-import Image from "next/image";
-import { Title } from "./title";
-import { Text } from "./text";
-import { Form, FormField, FormItem } from "./ui/form";
+'use client';
+import Image from 'next/image';
+import { Title } from './title';
+import { Text } from './text';
+import { Form, FormField, FormItem } from './ui/form';
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "./ui/select";
-import { z } from "zod";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
+} from './ui/select';
+import { z } from 'zod';
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
 
 const selectCitySchema = z.object({
   city: z
-    .enum(["São Paulo", "Rio de Janeiro", "Santa catarina"])
-    .default("São Paulo"),
+    .enum(['São Paulo', 'Rio de Janeiro', 'Santa catarina'])
+    .default('São Paulo'),
 });
 type SelectCitySchema = z.infer<typeof selectCitySchema>;
 
 export function FunctionsApplicationSection() {
   const form = useForm<SelectCitySchema>({
     resolver: zodResolver(selectCitySchema),
-    mode: "onChange",
+    mode: 'onChange',
   });
 
   const handleSubmitSearchGameForm = (data: SelectCitySchema) => {

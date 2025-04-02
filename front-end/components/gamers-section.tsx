@@ -1,8 +1,8 @@
-"use client";
-import { motion } from "framer-motion";
-import { Title } from "./title";
-import Image from "next/image";
-import { ButtonAction } from "./button-action";
+'use client';
+import { motion } from 'framer-motion';
+import { Title } from './title';
+import Image from 'next/image';
+import { ButtonAction } from './button-action';
 
 export function GamersSection() {
   return (
@@ -24,14 +24,14 @@ export function GamersSection() {
         <div className="grid grid-cols-4  gap-x-3 gap-y-6 w-full relative z-50">
           <motion.span
             animate={{
-              translateY: ["50%", "48%", "50%"],
-              translateX: ["-50%"],
+              translateY: ['50%', '48%', '50%'],
+              translateX: ['-50%'],
             }}
             transition={{
               duration: 1,
               repeat: Infinity,
-              repeatType: "loop",
-              ease: "easeOut",
+              repeatType: 'loop',
+              ease: 'easeOut',
             }}
             className="absolute left-0 bottom-0 -translate-x-1/2 translate-y-1/2 z-50"
           >
@@ -110,14 +110,14 @@ export function GamersSection() {
           />
           <motion.span
             animate={{
-              translateY: ["-50%", "-48%", "-50%"],
-              translateX: ["50%"],
+              translateY: ['-50%', '-48%', '-50%'],
+              translateX: ['50%'],
             }}
             transition={{
               duration: 1,
               repeat: Infinity,
-              repeatType: "loop",
-              ease: "easeOut",
+              repeatType: 'loop',
+              ease: 'easeOut',
             }}
             className="absolute right-0 top-0 translate-x-1/2 -translate-y-1/2"
           >
