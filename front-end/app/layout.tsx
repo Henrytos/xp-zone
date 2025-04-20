@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import './globals.css';
 import { openSans, orbitron } from './fonts';
 import { SingInOpenProvider } from './_providers/sing-in-open-provider';
+import { AuthUserProvider } from './_providers/auth-user-provider';
 
 export const metadata: Metadata = {
   title: 'Xp zone',
@@ -19,7 +20,9 @@ export default function RootLayout({
       <body
         className={`${orbitron.variable} ${openSans.variable}  antialiased`}
       >
-        <SingInOpenProvider>{children}</SingInOpenProvider>
+        <AuthUserProvider>
+          <SingInOpenProvider>{children}</SingInOpenProvider>
+        </AuthUserProvider>
       </body>
     </html>
   );

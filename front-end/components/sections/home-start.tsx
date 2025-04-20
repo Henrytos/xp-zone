@@ -17,15 +17,8 @@ export function HomeStart() {
           <Header />
           <div className="mt-20 max-w-[80%] mx-auto space-y-20 z-50">
             <div className="z-50">
-              <Title font="orbitron" className="text-2xl md:text-4-xl">
-                {' '}
-                {'>>'} Compre
-              </Title>
-              <Title
-                color="gradient"
-                font="orbitron"
-                className="text-2xl md:text-4-xl"
-              >
+              <Title font="orbitron"> {'>>'} Compre</Title>
+              <Title color="gradient" font="orbitron">
                 Os melhores artigos gamers
                 <br />
                 na sua cidade!
