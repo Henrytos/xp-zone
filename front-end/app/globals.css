@@ -80,6 +80,25 @@
         );
         filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#fe9652",endColorstr="#e54a64",GradientType=1);
       }
+      .border-radiant-linear {
+        border: 4px solid transparent; /* controla a espessura */
+        border-radius: 8px; /* ou o valor que desejar */
+        background-image: linear-gradient(
+          0deg,
+          rgba(254, 150, 82, 1),
+          rgba(229, 74, 100, 1)
+        );
+        background-origin: border-box;
+        background-clip: padding-box, border-box;
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        background-position: center;
+
+        /* camada interna + borda com gradiente */
+        background-image: linear-gradient(white, white),
+          /* cor de fundo interna */
+            linear-gradient(0deg, rgba(254, 150, 82, 1), rgba(229, 74, 100, 1)); /* a borda */
+      }
     }
     --primary-foreground: 0 0% 9%;
     --secondary: #2f0c66;
@@ -118,6 +137,23 @@
     background-position: center center;
     position: relative;
   }
+  .bg-game-start {
+    position: relative;
+    z-index: 0;
+  }
+
+  .bg-game-start::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("/images/bg-game-start.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    opacity: 0.25;
+    z-index: -1;
+  }
+
   .bg-home-second {
     background-image: url("/images/background-second.png");
     background-repeat: no-repeat;
@@ -256,6 +292,25 @@
     color: transparent;
     font-size: 48px;
     font-family: Arial, sans-serif;
+  }
+  .border-radiant-linear {
+    border: 4px solid transparent; /* controla a espessura */
+    border-radius: 8px; /* ou o valor que desejar */
+    background-image: linear-gradient(
+      0deg,
+      rgba(254, 150, 82, 1),
+      rgba(229, 74, 100, 1)
+    );
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-position: center;
+
+    /* camada interna + borda com gradiente */
+    background-image: linear-gradient(white, white),
+      /* cor de fundo interna */
+        linear-gradient(0deg, rgba(254, 150, 82, 1), rgba(229, 74, 100, 1)); /* a borda */
   }
 }
 
