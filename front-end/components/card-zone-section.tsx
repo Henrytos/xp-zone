@@ -1,9 +1,13 @@
-import Image from 'next/image';
-import { Title } from './title';
-import { Text } from './text';
-import { Button } from './button';
+"use client";
+import Image from "next/image";
+import { Title } from "./title";
+import { Text } from "./text";
+import { Button } from "./button";
+import { useRouter } from "next/navigation";
 
 export function CardZoneSection() {
+  const router = useRouter();
+
   return (
     <>
       <section className="w-[80%] min-h-screen m-auto grid grid-cols-10 content-center items-center gap-20 z-50">
@@ -29,7 +33,7 @@ export function CardZoneSection() {
 
           <div className="space-y-10">
             <Text color="purple" size="2xl">
-              Você pode comprar{' '}
+              Você pode comprar{" "}
               <span className="font-bold">
                 Cards Zones para presentear seus amigos
               </span>
@@ -40,7 +44,13 @@ export function CardZoneSection() {
               Aproveite e compre também nas lojas da XP Zone os melhores artigos
               gamers.
             </Text>
-            <Button.Root>Comprar agora</Button.Root>
+            <Button.Root
+              onClick={() => {
+                router.push("/games");
+              }}
+            >
+              Comprar agora
+            </Button.Root>
           </div>
         </div>
       </section>
