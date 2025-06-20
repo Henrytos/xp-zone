@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import {
   Select,
@@ -6,21 +6,21 @@ import {
   SelectValue,
   SelectContent,
   SelectItem,
-} from '@/components/ui/select';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { Search } from 'lucide-react';
-import { useForm } from 'react-hook-form';
-import { z } from 'zod';
-import { Form, FormField, FormItem } from './ui/form';
-import clsx from 'clsx';
-import { motion } from 'framer-motion';
-import { twMerge } from 'tailwind-merge';
+} from "@/components/ui/select";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { Search } from "lucide-react";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
+import { Form, FormField, FormItem } from "./ui/form";
+import clsx from "clsx";
+import { motion } from "framer-motion";
+import { twMerge } from "tailwind-merge";
 
 const searchGameFormSchema = z.object({
-  search: z.string({ message: 'opção invalida' }).min(2),
+  search: z.string({ message: "opção invalida" }).min(2),
   city: z
-    .enum(['São Paulo', 'Rio de Janeiro', 'Santa catarina'])
-    .default('São Paulo'),
+    .enum(["São Paulo", "Rio de Janeiro", "Santa catarina"])
+    .default("São Paulo"),
 });
 
 type SearchGameForm = z.infer<typeof searchGameFormSchema>;
@@ -28,11 +28,11 @@ type SearchGameForm = z.infer<typeof searchGameFormSchema>;
 export function SearchGameForm() {
   const form = useForm<SearchGameForm>({
     defaultValues: {
-      city: 'São Paulo',
-      search: '',
+      city: "São Paulo",
+      search: "",
     },
     resolver: zodResolver(searchGameFormSchema),
-    mode: 'all',
+    mode: "all",
   });
 
   const handleSubmitSearchGameForm = (data: SearchGameForm) => {
@@ -47,10 +47,10 @@ export function SearchGameForm() {
       <Form {...form}>
         <form
           className={clsx(
-            'flex items-center gap-5 w-1/2 border-[3px] rounded-md',
+            "flex items-center gap-5 w-1/2 border-[3px] rounded-md",
             {
-              'border border-red-500': isInvalidForm,
-            },
+              "border border-red-500": isInvalidForm,
+            }
           )}
           onSubmit={form.handleSubmit(handleSubmitSearchGameForm)}
         >
@@ -64,29 +64,29 @@ export function SearchGameForm() {
               },
             }}
             className={clsx(
-              'bg-transparent  text-2xl   transition-all px-4 py-5 focus:outline-none w-[60%]',
+              "bg-transparent  text-2xl   transition-all px-4 py-5 focus:outline-none w-[60%]",
               {
-                'text-red-500': isInvalidForm,
-                'text-white': !isInvalidForm,
-              },
+                "text-red-500": isInvalidForm,
+                "text-white": !isInvalidForm,
+              }
             )}
-            {...form.register('search')}
+            {...form.register("search")}
           />
 
-          <button type="submit">
+          <button type="submit" title="botão de Buscar jogo">
             <Search
               className={twMerge(
-                clsx('w-8 h-8 text-white', {
-                  'text-red-500': isInvalidForm,
-                }),
+                clsx("w-8 h-8 text-white", {
+                  "text-red-500": isInvalidForm,
+                })
               )}
             />
           </button>
           <span
             className={twMerge(
-              clsx('w-1 h-12 bg-white rounded-sm', {
-                'bg-red-500': isInvalidForm,
-              }),
+              clsx("w-1 h-12 bg-white rounded-sm", {
+                "bg-red-500": isInvalidForm,
+              })
             )}
           />
 
@@ -97,11 +97,11 @@ export function SearchGameForm() {
               <FormItem
                 className={twMerge(
                   clsx(
-                    'text-2xl text-white  outline-none font-light flex gap-2 items-center focus:outline-none border-none focus:border-none  selection:border-none selection:outline-none w-[30%]',
+                    "text-2xl text-white  outline-none font-light flex gap-2 items-center focus:outline-none border-none focus:border-none  selection:border-none selection:outline-none w-[30%]",
                     {
-                      'text-red-500': isInvalidForm,
-                    },
-                  ),
+                      "text-red-500": isInvalidForm,
+                    }
+                  )
                 )}
               >
                 <Select

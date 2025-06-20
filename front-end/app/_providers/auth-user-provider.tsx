@@ -33,8 +33,7 @@ export function AuthUserProvider({ children }: { children: React.ReactNode }) {
       id: "1",
       name: "Henry franz",
       email: "henry@example.com",
-      avatarUrl:
-        "https://github.com/user-attachments/assets/ff08f517-ccb6-4e63-a4c7-65a7a6773e53",
+      avatarUrl: "https://cdn.pfps.gg/pfps/4634-chrollo-lucilfer-manga.png",
     });
   }, []);
 

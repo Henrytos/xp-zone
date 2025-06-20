@@ -30,7 +30,7 @@ export default {
   			success: '#29B683',
   			warning: '#FBA14E',
   			danger: '#E54B65',
-  			neutrals: '#374957',
+  			neutrals: '#B6B1BC',
   			white: '#FFFFFF',
   			black: '#000000',
   			background: 'hsl(var(--background))',
