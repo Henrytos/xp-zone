@@ -6,10 +6,14 @@ import { useState } from "react";
 import { SheetFormSingIn } from "./sheet-form-sing-in";
 import { SheetFormSingUp } from "./sheet-form-sing-up";
 import { useSingInOpen } from "@/app/_providers/sing-in-open-provider";
+import { useAuthUser } from "@/app/_providers/auth-user-provider";
 
 export function Header() {
   const router = useRouter();
   const [openSheetAdvertise, setOpenSheetAdvertise] = useState<boolean>(false);
+  const { isAuthenticated, user } = useAuthUser();
+  console.log("isAuthenticated", isAuthenticated);
+  console.log("user", user);
 
   const handleCLickInLogo = () => {
     router.push("/");
@@ -40,27 +44,32 @@ export function Header() {
         quality={100}
         onClick={handleCLickInLogo}
       />
-      <div className="space-x-9">
-        {/* button sing in */}
-        <Button.Root color="secondary" onClick={handleCLickSingInButton}>
-          {" "}
-          Entrar
-        </Button.Root>
+      {!isAuthenticated && (
+        <div className="space-x-9">
+          {/* button sing in */}
+          <Button.Root color="secondary" onClick={handleCLickSingInButton}>
+            {" "}
+            Entrar
+          </Button.Root>
 
-        {/* button advertise */}
-        <Button.Root color="primary" onClick={handleCLickAdvertiseButton}>
-          Anunciar grátis
-        </Button.Root>
+          {/* button advertise */}
+          <Button.Root color="primary" onClick={handleCLickAdvertiseButton}>
+            Anunciar grátis
+          </Button.Root>
 
-        {/* sheet  sing in*/}
-        <SheetFormSingIn open={isOpen} onOpenChange={handleCLickSingInButton} />
+          {/* sheet  sing in*/}
+          <SheetFormSingIn
+            open={isOpen}
+            onOpenChange={handleCLickSingInButton}
+          />
 
-        {/* sheet  advertise*/}
-        <SheetFormSingUp
-          open={openSheetAdvertise}
-          onOpenChange={handleCLickAdvertiseButton}
-        />
-      </div>
+          {/* sheet  advertise*/}
+          <SheetFormSingUp
+            open={openSheetAdvertise}
+            onOpenChange={handleCLickAdvertiseButton}
+          />
+        </div>
+      )}
     </header>
   );
 }
