@@ -4,6 +4,7 @@ import { Header } from "@/components/header";
 import { Text } from "@/components/text";
 import { Title } from "@/components/title";
 import { Badge } from "@/components/ui/badge";
+import clsx from "clsx";
 import Image from "next/image";
 import { useState } from "react";
 
@@ -137,11 +138,14 @@ export default function GamesPage() {
                 </Badge>
               ))}
             </div>
-            <div className=" w-[80%] m-auto h-[480px] bg-radiant-linear p-0.5 rounded-lg relative">
+            <div className=" w-[80%] m-auto h-[480px] bg-radiant-linear p-0.5 rounded-lg relative ">
               {slides
                 .filter((slide) => slide.selected)
                 .map((slide) => (
-                  <div className="w-full h-full relative" key={slide.id}>
+                  <div
+                    className="w-full h-full relative transition-opacity duration-700 opacity-0 animate-fadeIn"
+                    key={slide.id}
+                  >
                     <Image
                       src={slide.imageUrl}
                       alt={slide.title}
@@ -163,32 +167,25 @@ export default function GamesPage() {
                           {slide.buttonText}
                         </Button.Root>
                       </div>
-                      <span className="w-60 h-1 flex gap-2 group">
-                        {Array.from({
-                          length: slides.length,
-                        }).map((_, index) => {
+                      <span className="w-60 h-1 flex gap-2 group transition-all">
+                        {slides.map((slideItem, index) => {
                           const isActive =
-                            index ===
-                            slides.findIndex((slide) => slide.selected);
+                            index === slides.findIndex((s) => s.selected);
+
                           return (
                             <span
                               key={index}
-                              className={`${
-                                isActive
-                                  ? `w-2/${slides.length + 1}`
-                                  : `w-1/${slides.length + 1}`
-                              } h-1 rounded bg-white cursor-pointer transition-all duration-200 ${
-                                isActive && "group-hover:brightness-50"
-                              } group-hover:w-2/4 ${
-                                isActive ? "brightness-100" : "brightness-50"
-                              } hover:brightness-100 hover:w-2/${
-                                slides.length + 1
-                              }
-                              `}
-                              onClick={() => {
-                                handleClickSlide(index);
-                              }}
-                            ></span>
+                              onClick={() => handleClickSlide(index)}
+                              className={clsx(
+                                "h-1 rounded bg-white cursor-pointer transition-all duration-200",
+                                {
+                                  "flex-[2] brightness-100 group-hover:brightness-50":
+                                    isActive,
+                                  "flex-1 brightness-50 hover:brightness-100 hover:flex-[2]":
+                                    !isActive,
+                                }
+                              )}
+                            />
                           );
                         })}
                       </span>
