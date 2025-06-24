@@ -1,8 +1,10 @@
+"use client";
 import { Header } from "@/components/header";
 import { Badge } from "@/components/ui/badge";
+import { useState } from "react";
 
 export default function GamesPage() {
-  const filterGenres = [
+  const [filterGenres, setFilterGenres] = useState([
     {
       label: "Action",
       value: "action",
@@ -48,7 +50,22 @@ export default function GamesPage() {
       value: "shooter",
       selected: false,
     },
-  ];
+  ]);
+
+  const handleClickGenre = (value: string) => {
+    const genre = filterGenres.find((genre) => genre.value === value);
+    const genreSelected = genre?.selected;
+
+    if (genreSelected) return;
+
+    setFilterGenres((currentGenres) =>
+      currentGenres.map((genre) =>
+        genre.value === value
+          ? { ...genre, selected: !genre.selected }
+          : { ...genre, selected: false }
+      )
+    );
+  };
 
   return (
     <>
@@ -60,6 +77,9 @@ export default function GamesPage() {
               {filterGenres.map((genre) => (
                 <Badge
                   variant={genre.selected ? "active" : "default"}
+                  onClick={() => {
+                    handleClickGenre(genre.value);
+                  }}
                   key={genre.value}
                 >
                   {genre.label}
