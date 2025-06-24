@@ -1,13 +1,13 @@
-import type { Metadata } from 'next';
-import './globals.css';
-import { openSans, orbitron } from './fonts';
-import { SingInOpenProvider } from './_providers/sing-in-open-provider';
-import { AuthUserProvider } from './_providers/auth-user-provider';
+import type { Metadata } from "next";
+import "./globals.css";
+import { openSans, orbitron } from "./fonts";
+import { SingInOpenProvider } from "./_providers/sing-in-open-provider";
+import { AuthUserProvider } from "./_providers/auth-user-provider";
 
 export const metadata: Metadata = {
-  title: 'Xp zone',
+  title: "Xp zone",
   description:
-    'Nunca foi tão fácil conseguir aquele jogo ou console tão sonhado com a XP Zone.',
+    "Nunca foi tão fácil conseguir aquele jogo ou console tão sonhado com a XP Zone.",
 };
 
 export default function RootLayout({

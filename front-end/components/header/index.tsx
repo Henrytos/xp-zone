@@ -36,6 +36,11 @@ export function Header() {
   const handleCLickAdvertiseButton = () => {
     setOpenSheetAdvertise((currentState) => !currentState);
   };
+
+  const handleClickPreviewProfile = () => {
+    router.push("/profile");
+  };
+
   const isPageGaming = pathname === "/games";
 
   // TODO: Implement logic to check if there are new reactions and notifications
@@ -59,7 +64,7 @@ export function Header() {
       {isAuthenticated && user && (
         <div className="flex items-center gap-9">
           {/* icon heart */}
-          <span className="p-2.5 border-2 border-neutrals rounded-full relative">
+          <span className="p-2.5 border-2 border-neutrals rounded-full relative cursor-pointer brightness-100 hover:brightness-75 transition-all duration-300">
             <Heart className="text-neutrals fill-neutrals w-7 h-7" />
             {hasNewReactions && (
               <span className="absolute top-3 right-2 bg-radiant-horizontal w-2 h-2 rounded-full" />
@@ -67,7 +72,7 @@ export function Header() {
           </span>
 
           {/* icon notification */}
-          <span className="p-2.5 border-2 border-neutrals rounded-full relative">
+          <span className="p-2.5 border-2 border-neutrals rounded-full relative cursor-pointer brightness-100 hover:brightness-75 transition-all duration-300">
             <Bell className="text-neutrals fill-neutrals w-7 h-7" />
             {hasNewNotifications && (
               <span className="absolute top-3 right-3 bg-radiant-horizontal w-2 h-2 rounded-full" />
@@ -77,14 +82,15 @@ export function Header() {
           <div className="flex items-center gap-4">
             <Text className="text-neutrals">{user.name}</Text>
 
-            <div className="p-0.5 bg-radiant-horizontal rounded-full w-auto h-auto">
+            <div className="p-0.5 bg-radiant-horizontal rounded-full w-auto h-auto ">
               <Image
                 src={user.avatarUrl}
                 alt={user.name}
-                width={80}
-                height={80}
+                width={64}
+                height={64}
                 quality={100}
-                className="rounded-full w-20 h-20"
+                className="rounded-full w-16 h-16 cursor-pointer object-cover brightness-100 hover:brightness-75 transition-all duration-300"
+                onClick={handleClickPreviewProfile}
               />
             </div>
           </div>
